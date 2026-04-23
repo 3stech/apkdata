@@ -44,7 +44,6 @@
     { "id": "s010", "name_english": "Chithirai Thiruvizha (Madurai)", "name_tamil": "சித்திரை திருவிழா", "gregorian_date": "2026-05-08", "tradition": "shaiva", "tithi_ref": "Chithirai — Meenakshi Thirukalyanam (approximate)" },
 
     { "id": "v001", "name_english": "Rama Navami", "name_tamil": "ராம நவமி", "gregorian_date": "2026-03-27", "tradition": "vaishnava", "tithi_ref": "Chaitra Shukla Navami" },
-    { "id": "v002", "name_english": "Vaikasi Visakam (Vishnu festival)", "name_tamil": "வைகாசி விசாகம் (விஷ்ணு திருவிழா)", "gregorian_date": "2026-05-30", "tradition": "vaishnava", "tithi_ref": "Vaikasi Pournami, Visakha nakshatra" },
     { "id": "v003", "name_english": "Aadi Vaikunta Ekadasi", "name_tamil": "ஆடி வைகுண்ட ஏகாதசி", "gregorian_date": "2026-07-27", "tradition": "vaishnava", "tithi_ref": "Aadi Shukla Ekadasi" },
     { "id": "v004", "name_english": "Krishna Jayanthi (Gokulashtami)", "name_tamil": "கிருஷ்ண ஜயந்தி (கோகுலாஷ்டமி)", "gregorian_date": "2026-08-16", "tradition": "vaishnava", "tithi_ref": "Avani Krishna Ashtami, Rohini nakshatra" },
     { "id": "v005", "name_english": "Onam — Thiruvonam", "name_tamil": "ஓணம் — திருவோணம்", "gregorian_date": "2026-09-03", "tradition": "vaishnava", "tithi_ref": "Chingam Thiruvonam — Mahabali / Vamana avatar" },
