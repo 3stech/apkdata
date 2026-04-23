@@ -1,0 +1,33 @@
+{
+  "schema_version": "1.0",
+  "last_updated": "2026-04-23",
+
+  "app": {
+    "min_version_code": 1,
+    "min_version_name": "1.0.0",
+    "force_update_version_code": 0,
+    "force_update_version_name": null,
+    "force_update_url": "https://play.google.com/store/apps/details?id=in._3sTechChennai.ThithiAlert"
+  },
+
+  "festivals_data": {
+    "current_url": "https://3stech.github.io/apkdata/thithialert/festivals.json",
+    "current_tamil_year": "Parabhava",
+    "valid_from": "2026-04-14",
+    "valid_to": "2027-04-13"
+  },
+
+  "notice": {
+    "active": false,
+    "message_english": null,
+    "message_tamil": null,
+    "dismissible": true
+  },
+
+  "notes": {
+    "min_version_code": "App will show an upgrade prompt if installed version_code is below this value. Set to 0 to disable.",
+    "force_update_version_code": "App will block usage and force store redirect if installed version_code is below this value. Set to 0 to disable. Use only for critical security or data fixes.",
+    "notice": "Set active=true and provide message strings to push an in-app notice banner (e.g. upcoming maintenance, festival data update). Set active=false to suppress.",
+    "update_procedure": "To push a notice: set active=true, fill message strings, commit. To force a soft upgrade prompt: increase min_version_code to the new release. To hard-block old versions: set force_update_version_code. Always test on a dev build before committing."
+  }
+}
