@@ -12,9 +12,12 @@
       "name_tamil": "தமிழ் புத்தாண்டு / புத்தண்டு",
       "tradition": "universal",
       "date_rule": {
-        "type": "sankranti",
+        "type": "tamil_month_date",
+        "tamil_month": "Chithirai",
+        "day": 1
+        "note": "Sun enters Aries — Mesha Sankranti. "
+		"newtype": "sankranti",
         "rasi": "Mesha",
-        "note": "Sun enters Aries — Mesha Sankranti. Typically April 14."
       },
       "panchangam_ref": "Mesha Sankranti — Sun enters Aries"
     },
@@ -66,11 +69,11 @@
       "name_tamil": "ஆவணி அவிட்டம்",
       "tradition": "universal",
       "date_rule": {
-        "type": "tamil_month_nakshatra",
+        "type": "tamil_month_thithi",
         "tamil_month": "Avani",
-        "nakshatra": "Avittam",
+        "tithi": 15,
         "paksha": "Shukla",
-        "note": "Dhanishtha (Avittam) nakshatra during Shukla paksha of Avani"
+        "note": "Pournami during Shukla paksha of Avani"
       },
       "panchangam_ref": "Avani Shukla paksha, Avittam (Dhanishtha) nakshatra"
     },
@@ -168,9 +171,12 @@
       "name_tamil": "மார்கழி மாதம் தொடக்கம்",
       "tradition": "universal",
       "date_rule": {
-        "type": "sankranti",
-        "rasi": "Dhanusu",
+        "type": "tamil_month_date",
+        "tamil_month": "Margazhi",
+        "day": 1
         "note": "Sun enters Sagittarius — Margazhi 1, around Dec 16"
+        "newtype": "sankranti",
+        "rasi": "Dhanusu",
       },
       "panchangam_ref": "Dhanusu Sankranti — Sun enters Sagittarius"
     },
@@ -181,9 +187,12 @@
       "name_tamil": "தை பொங்கல்",
       "tradition": "universal",
       "date_rule": {
-        "type": "sankranti",
+        "type": "tamil_month_date",
+        "tamil_month": "Thai",
+        "day": 1
+        "note": "Sun enters Capricorn — Makara Sankranti."
+        "newtype": "sankranti",
         "rasi": "Makara",
-        "note": "Sun enters Capricorn — Makara Sankranti. Typically January 14."
       },
       "panchangam_ref": "Makara Sankranti — Sun enters Capricorn"
     },
@@ -480,7 +489,10 @@
       "name_tamil": "திருப்பாவை மாதம் (மார்கழி)",
       "tradition": "vaishnava",
       "date_rule": {
-        "type": "sankranti",
+        "type": "tamil_month_date",
+        "tamil_month": "Margazhi",
+        "day": 1
+        "newtype": "sankranti",
         "rasi": "Dhanusu",
         "note": "Margazhi 1 — same sankranti date as u012; entire month is Andal's Thirupavai month"
       },
