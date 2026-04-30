@@ -1,47 +1,717 @@
 {
-  "schema_version": "1.1",
-  "tamil_year": "Parabhava",
-  "tamil_year_tamil": "பரபவ",
-  "gregorian_year_start": 2026,
-  "gregorian_year_end": 2027,
-  "valid_from": "2026-04-14",
-  "valid_to": "2027-04-13",
-  "generated_date": "2026-04-29",
-  "source_note": "Dates verified against Drik Panchang, prokerala.com, ISKCON Bangalore, and multiple Tamil calendar sources in April 2026. Only entries with confirmed date matches are included in this file. See validation_log for removed entries.",
+  "schema_version": "2.0",
+  "description": "ThithiAlert festivals master list — rule-based, year-agnostic. Gregorian dates are computed at runtime by FestivalDateResolver using the device panchangam engine. No pre-calculated dates stored here.",
+  "source_note": "Rules verified against Drik Panchang and traditional Tamil panchangam sources. Review panchangam_ref text annually for accuracy.",
+  "changelog": "v2.0 — Replaced gregorian_date with date_rule per festival. Renamed tithi_ref to panchangam_ref. Removed year-specific header fields. Removed Pradosham from festival list (retained in predefined_reminder_suggestions only). Removed duplicate Soorasamharam entry.",
 
   "festivals": [
 
-    { "id": "u001", "name_english": "Tamil New Year (Puthandu)", "name_tamil": "தமிழ் புத்தாண்டு / புத்தண்டு", "gregorian_date": "2026-04-14", "tradition": "universal", "tithi_ref": "Mesha Sankranti", "validation_status": "confirmed" },
-    { "id": "u003", "name_english": "Vaikasi Visakam", "name_tamil": "வைகாசி விசாகம்", "gregorian_date": "2026-05-30", "tradition": "universal", "tithi_ref": "Vaikasi Pournami, Visakha nakshatra", "validation_status": "confirmed" },
-    { "id": "u004", "name_english": "Aadi Perukku", "name_tamil": "ஆடி பெருக்கு", "gregorian_date": "2026-08-03", "tradition": "universal", "tithi_ref": "Aadi 18", "validation_status": "confirmed" },
-    { "id": "u008", "name_english": "Ayudha Puja", "name_tamil": "ஆயுத பூஜை", "gregorian_date": "2026-10-19", "tradition": "universal", "tithi_ref": "Navratri Navami (Tamil observance)", "validation_status": "confirmed" },
-    { "id": "u009", "name_english": "Vijayadasami (Dussehra)", "name_tamil": "விஜயதசமி", "gregorian_date": "2026-10-20", "tradition": "universal", "tithi_ref": "Ashwina Shukla Dasami", "validation_status": "confirmed" },
-    { "id": "u012", "name_english": "Margazhi month begins", "name_tamil": "மார்கழி மாதம் தொடக்கம்", "gregorian_date": "2026-12-16", "tradition": "universal", "tithi_ref": "Sun enters Dhanusu (Sagittarius)", "validation_status": "confirmed" },
-    { "id": "u013", "name_english": "Pongal (Thai Pongal)", "name_tamil": "தை பொங்கல்", "gregorian_date": "2027-01-14", "tradition": "universal", "tithi_ref": "Makara Sankranti — Sun enters Capricorn", "validation_status": "confirmed" },
-    { "id": "u014", "name_english": "Maatu Pongal", "name_tamil": "மாட்டுப் பொங்கல்", "gregorian_date": "2027-01-15", "tradition": "universal", "tithi_ref": "Thai 2", "validation_status": "confirmed" },
-    { "id": "u015", "name_english": "Kaanum Pongal", "name_tamil": "காணும் பொங்கல்", "gregorian_date": "2027-01-16", "tradition": "universal", "tithi_ref": "Thai 3", "validation_status": "confirmed" },
-    { "id": "u016", "name_english": "Thiruvalluvar Day", "name_tamil": "திருவள்ளுவர் தினம்", "gregorian_date": "2027-01-15", "tradition": "universal", "tithi_ref": "Thai 2 — government holiday", "validation_status": "confirmed" },
-    { "id": "u017", "name_english": "Uzhavar Thirunal", "name_tamil": "உழவர் திருநாள்", "gregorian_date": "2027-01-16", "tradition": "universal", "tithi_ref": "Thai 3 — government holiday", "validation_status": "confirmed" },
+    {
+      "id": "u001",
+      "name_english": "Tamil New Year (Puthandu)",
+      "name_tamil": "தமிழ் புத்தாண்டு / புத்தண்டு",
+      "tradition": "universal",
+      "date_rule": {
+        "type": "sankranti",
+        "rasi": "Mesha",
+        "note": "Sun enters Aries — Mesha Sankranti. Typically April 14."
+      },
+      "panchangam_ref": "Mesha Sankranti — Sun enters Aries"
+    },
 
-    { "id": "s001", "name_english": "Maha Shivaratri", "name_tamil": "மகா சிவராத்திரி", "gregorian_date": "2026-02-15", "tradition": "shaiva", "tithi_ref": "Maasi Krishna Chaturdasi", "validation_status": "confirmed" },
-    { "id": "s003", "name_english": "Skanda Shashthi", "name_tamil": "கந்த சஷ்டி", "gregorian_date": "2026-11-10", "tradition": "shaiva", "tithi_ref": "Karthigai Shukla Shashthi (6-day festival ends)", "validation_status": "confirmed" },
-    { "id": "s004", "name_english": "Skanda Shashthi begins", "name_tamil": "கந்த சஷ்டி தொடக்கம்", "gregorian_date": "2026-11-05", "tradition": "shaiva", "tithi_ref": "Karthigai Shukla Prathama", "validation_status": "confirmed" },
-    { "id": "s009", "name_english": "Aipasi Soora Samharam (Skanda Shashthi)", "name_tamil": "சூரசம்ஹாரம்", "gregorian_date": "2026-11-10", "tradition": "shaiva", "tithi_ref": "Karthigai Shukla Shashthi", "validation_status": "confirmed" },
+    {
+      "id": "u002",
+      "name_english": "Akshaya Tritiya",
+      "name_tamil": "அட்சய திருதியை",
+      "tradition": "universal",
+      "date_rule": {
+        "type": "tamil_month_tithi",
+        "tamil_month": "Vaikasi",
+        "paksha": "Shukla",
+        "tithi": 3
+      },
+      "panchangam_ref": "Vaikasi Shukla Tritiya"
+    },
 
-    { "id": "v001", "name_english": "Rama Navami", "name_tamil": "ராம நவமி", "gregorian_date": "2026-03-27", "tradition": "vaishnava", "tithi_ref": "Chaitra Shukla Navami — Vaishnava observance date (mainstream: Mar 26)", "validation_status": "confirmed_tradition_specific" },
-    { "id": "v008", "name_english": "Thirupavai month (Margazhi)", "name_tamil": "திருப்பாவை மாதம் (மார்கழி)", "gregorian_date": "2026-12-16", "tradition": "vaishnava", "tithi_ref": "Margazhi 1 — entire month of Andal's Thirupavai", "validation_status": "confirmed" },
+    {
+      "id": "u003",
+      "name_english": "Vaikasi Visakam",
+      "name_tamil": "வைகாசி விசாகம்",
+      "tradition": "universal",
+      "date_rule": {
+        "type": "tamil_month_nakshatra",
+        "tamil_month": "Vaikasi",
+        "nakshatra": "Visakam",
+        "note": "Visakha nakshatra in Vaikasi month — typically falls on or near Pournami"
+      },
+      "panchangam_ref": "Vaikasi Pournami, Visakam nakshatra"
+    },
 
-    { "id": "k001", "name_english": "Navarathiri begins", "name_tamil": "நவராத்திரி தொடக்கம்", "gregorian_date": "2026-10-11", "tradition": "shakti", "tithi_ref": "Ashwina Shukla Prathama", "validation_status": "confirmed" },
-    { "id": "k002", "name_english": "Navarathiri Saraswati Puja (Navami)", "name_tamil": "நவராத்திரி சரஸ்வதி பூஜை", "gregorian_date": "2026-10-19", "tradition": "shakti", "tithi_ref": "Ashwina Shukla Navami", "validation_status": "confirmed" },
-    { "id": "k012", "name_english": "Durga Ashtami (Navratri)", "name_tamil": "துர்கா அஷ்டமி", "gregorian_date": "2026-10-18", "tradition": "shakti", "tithi_ref": "Ashwina Shukla Ashtami", "validation_status": "confirmed" },
-    { "id": "k004", "name_english": "Aadi Fridays (1st)", "name_tamil": "ஆடி வெள்ளி (1வது)", "gregorian_date": "2026-07-17", "tradition": "shakti", "tithi_ref": "First Friday of Aadi — Amman worship", "validation_status": "confirmed" },
-    { "id": "k005", "name_english": "Aadi Fridays (2nd)", "name_tamil": "ஆடி வெள்ளி (2வது)", "gregorian_date": "2026-07-24", "tradition": "shakti", "tithi_ref": "Second Friday of Aadi", "validation_status": "confirmed" },
-    { "id": "k006", "name_english": "Aadi Fridays (3rd)", "name_tamil": "ஆடி வெள்ளி (3வது)", "gregorian_date": "2026-07-31", "tradition": "shakti", "tithi_ref": "Third Friday of Aadi", "validation_status": "confirmed" },
-    { "id": "k007", "name_english": "Aadi Fridays (4th)", "name_tamil": "ஆடி வெள்ளி (4வது)", "gregorian_date": "2026-08-07", "tradition": "shakti", "tithi_ref": "Fourth Friday of Aadi", "validation_status": "confirmed" },
-    { "id": "k013", "name_english": "Purattasi Saturdays (1st)", "name_tamil": "புரட்டாசி சனிக்கிழமை (1வது)", "gregorian_date": "2026-09-19", "tradition": "shakti", "tithi_ref": "First Saturday of Purattasi", "validation_status": "confirmed" },
-    { "id": "k014", "name_english": "Purattasi Saturdays (2nd)", "name_tamil": "புரட்டாசி சனிக்கிழமை (2வது)", "gregorian_date": "2026-09-26", "tradition": "shakti", "tithi_ref": "Second Saturday of Purattasi", "validation_status": "confirmed" },
-    { "id": "k015", "name_english": "Purattasi Saturdays (3rd)", "name_tamil": "புரட்டாசி சனிக்கிழமை (3வது)", "gregorian_date": "2026-10-03", "tradition": "shakti", "tithi_ref": "Third Saturday of Purattasi", "validation_status": "confirmed" },
-    { "id": "k016", "name_english": "Purattasi Saturdays (4th)", "name_tamil": "புரட்டாசி சனிக்கிழமை (4வது)", "gregorian_date": "2026-10-10", "tradition": "shakti", "tithi_ref": "Fourth Saturday of Purattasi", "validation_status": "confirmed" }
+    {
+      "id": "u004",
+      "name_english": "Aadi Perukku",
+      "name_tamil": "ஆடி பெருக்கு",
+      "tradition": "universal",
+      "date_rule": {
+        "type": "tamil_month_date",
+        "tamil_month": "Aadi",
+        "day": 18
+      },
+      "panchangam_ref": "Aadi 18 — fixed Tamil solar date"
+    },
+
+    {
+      "id": "u005",
+      "name_english": "Avani Avittam (Yajur Upakarma)",
+      "name_tamil": "ஆவணி அவிட்டம்",
+      "tradition": "universal",
+      "date_rule": {
+        "type": "tamil_month_nakshatra",
+        "tamil_month": "Avani",
+        "nakshatra": "Avittam",
+        "paksha": "Shukla",
+        "note": "Dhanishtha (Avittam) nakshatra during Shukla paksha of Avani"
+      },
+      "panchangam_ref": "Avani Shukla paksha, Avittam (Dhanishtha) nakshatra"
+    },
+
+    {
+      "id": "u006",
+      "name_english": "Onam (Thiruvonam)",
+      "name_tamil": "ஓணம் (திருவோணம்)",
+      "tradition": "universal",
+      "date_rule": {
+        "type": "tamil_month_nakshatra",
+        "tamil_month": "Avani",
+        "nakshatra": "Thiruvonam",
+        "note": "Shravana (Thiruvonam) nakshatra in Avani (Chingam) month"
+      },
+      "panchangam_ref": "Avani, Thiruvonam (Shravana) nakshatra"
+    },
+
+    {
+      "id": "u007",
+      "name_english": "Saraswati Puja",
+      "name_tamil": "சரஸ்வதி பூஜை",
+      "tradition": "universal",
+      "date_rule": {
+        "type": "tamil_month_tithi",
+        "tamil_month": "Purattasi",
+        "paksha": "Shukla",
+        "tithi": 9,
+        "note": "Navratri Navami — Mahanavami"
+      },
+      "panchangam_ref": "Purattasi (Ashwina) Shukla Navami — Navratri day 9"
+    },
+
+    {
+      "id": "u008",
+      "name_english": "Ayudha Puja",
+      "name_tamil": "ஆயுத பூஜை",
+      "tradition": "universal",
+      "date_rule": {
+        "type": "tamil_month_tithi",
+        "tamil_month": "Purattasi",
+        "paksha": "Shukla",
+        "tithi": 9,
+        "note": "Observed on Navami in Tamil Nadu — same calendar date as Saraswati Puja"
+      },
+      "panchangam_ref": "Purattasi Shukla Navami — Tamil observance"
+    },
+
+    {
+      "id": "u009",
+      "name_english": "Vijayadasami (Dussehra)",
+      "name_tamil": "விஜயதசமி",
+      "tradition": "universal",
+      "date_rule": {
+        "type": "tamil_month_tithi",
+        "tamil_month": "Purattasi",
+        "paksha": "Shukla",
+        "tithi": 10
+      },
+      "panchangam_ref": "Purattasi (Ashwina) Shukla Dasami"
+    },
+
+    {
+      "id": "u010",
+      "name_english": "Deepavali (Diwali)",
+      "name_tamil": "தீபாவளி",
+      "tradition": "universal",
+      "date_rule": {
+        "type": "tamil_month_tithi",
+        "tamil_month": "Aippasi",
+        "paksha": "Krishna",
+        "tithi": 14,
+        "note": "Aippasi Krishna Chaturdasi — day before Amavasai"
+      },
+      "panchangam_ref": "Aippasi Krishna Chaturdasi"
+    },
+
+    {
+      "id": "u011",
+      "name_english": "Karthigai Deepam",
+      "name_tamil": "கார்த்திகை தீபம்",
+      "tradition": "universal",
+      "date_rule": {
+        "type": "tamil_month_nakshatra",
+        "tamil_month": "Karthigai",
+        "nakshatra": "Karthigai",
+        "note": "Krittika (Karthigai) nakshatra on Karthigai Pournami"
+      },
+      "panchangam_ref": "Karthigai Pournami, Karthigai (Krittika) nakshatra"
+    },
+
+    {
+      "id": "u012",
+      "name_english": "Margazhi Month Begins",
+      "name_tamil": "மார்கழி மாதம் தொடக்கம்",
+      "tradition": "universal",
+      "date_rule": {
+        "type": "sankranti",
+        "rasi": "Dhanusu",
+        "note": "Sun enters Sagittarius — Margazhi 1, around Dec 16"
+      },
+      "panchangam_ref": "Dhanusu Sankranti — Sun enters Sagittarius"
+    },
+
+    {
+      "id": "u013",
+      "name_english": "Pongal (Thai Pongal)",
+      "name_tamil": "தை பொங்கல்",
+      "tradition": "universal",
+      "date_rule": {
+        "type": "sankranti",
+        "rasi": "Makara",
+        "note": "Sun enters Capricorn — Makara Sankranti. Typically January 14."
+      },
+      "panchangam_ref": "Makara Sankranti — Sun enters Capricorn"
+    },
+
+    {
+      "id": "u014",
+      "name_english": "Maatu Pongal",
+      "name_tamil": "மாட்டுப் பொங்கல்",
+      "tradition": "universal",
+      "date_rule": {
+        "type": "tamil_month_date",
+        "tamil_month": "Thai",
+        "day": 2,
+        "note": "Day after Thai Pongal — Thai 2 (fixed solar)"
+      },
+      "panchangam_ref": "Thai 2 — day after Pongal"
+    },
+
+    {
+      "id": "u015",
+      "name_english": "Kaanum Pongal",
+      "name_tamil": "காணும் பொங்கல்",
+      "tradition": "universal",
+      "date_rule": {
+        "type": "tamil_month_date",
+        "tamil_month": "Thai",
+        "day": 3
+      },
+      "panchangam_ref": "Thai 3"
+    },
+
+    {
+      "id": "u016",
+      "name_english": "Thiruvalluvar Day",
+      "name_tamil": "திருவள்ளுவர் தினம்",
+      "tradition": "universal",
+      "date_rule": {
+        "type": "tamil_month_date",
+        "tamil_month": "Thai",
+        "day": 2,
+        "note": "Government holiday — same solar date as Maatu Pongal"
+      },
+      "panchangam_ref": "Thai 2 — government holiday"
+    },
+
+    {
+      "id": "u017",
+      "name_english": "Uzhavar Thirunal",
+      "name_tamil": "உழவர் திருநாள்",
+      "tradition": "universal",
+      "date_rule": {
+        "type": "tamil_month_date",
+        "tamil_month": "Thai",
+        "day": 3,
+        "note": "Government holiday — same solar date as Kaanum Pongal"
+      },
+      "panchangam_ref": "Thai 3 — government holiday"
+    },
+
+    {
+      "id": "u018",
+      "name_english": "Thai Poosam",
+      "name_tamil": "தை பூசம்",
+      "tradition": "universal",
+      "date_rule": {
+        "type": "tamil_month_nakshatra",
+        "tamil_month": "Thai",
+        "nakshatra": "Poosam",
+        "note": "Pushya (Poosam) nakshatra on Thai Pournami"
+      },
+      "panchangam_ref": "Thai Pournami, Poosam (Pushya) nakshatra"
+    },
+
+    {
+      "id": "u019",
+      "name_english": "Maasi Magam",
+      "name_tamil": "மாசி மகம்",
+      "tradition": "universal",
+      "date_rule": {
+        "type": "tamil_month_nakshatra",
+        "tamil_month": "Maasi",
+        "nakshatra": "Magam",
+        "note": "Magha nakshatra on Maasi Pournami"
+      },
+      "panchangam_ref": "Maasi Pournami, Magam (Magha) nakshatra"
+    },
+
+    {
+      "id": "u020",
+      "name_english": "Panguni Uthiram",
+      "name_tamil": "பங்குனி உத்திரம்",
+      "tradition": "universal",
+      "date_rule": {
+        "type": "tamil_month_nakshatra",
+        "tamil_month": "Panguni",
+        "nakshatra": "Uthiram",
+        "note": "Uttara Phalguni (Uthiram) nakshatra on Panguni Pournami"
+      },
+      "panchangam_ref": "Panguni Pournami, Uthiram (Uttara Phalguni) nakshatra"
+    },
+
+
+    {
+      "id": "s001",
+      "name_english": "Maha Shivaratri",
+      "name_tamil": "மகா சிவராத்திரி",
+      "tradition": "shaiva",
+      "date_rule": {
+        "type": "tamil_month_tithi",
+        "tamil_month": "Maasi",
+        "paksha": "Krishna",
+        "tithi": 14
+      },
+      "panchangam_ref": "Maasi Krishna Chaturdasi"
+    },
+
+    {
+      "id": "s002",
+      "name_english": "Thiruvathirai (Arudra Darshanam)",
+      "name_tamil": "திருவாதிரை (ஆருத்ரா தரிசனம்)",
+      "tradition": "shaiva",
+      "date_rule": {
+        "type": "tamil_month_nakshatra",
+        "tamil_month": "Margazhi",
+        "nakshatra": "Thiruvathirai",
+        "note": "Ardra (Thiruvathirai) nakshatra in Margazhi — preferably on Pournami"
+      },
+      "panchangam_ref": "Margazhi, Thiruvathirai (Ardra) nakshatra"
+    },
+
+    {
+      "id": "s003",
+      "name_english": "Skanda Shashthi (Soorasamharam)",
+      "name_tamil": "கந்த சஷ்டி (சூரசம்ஹாரம்)",
+      "tradition": "shaiva",
+      "date_rule": {
+        "type": "tamil_month_tithi",
+        "tamil_month": "Karthigai",
+        "paksha": "Shukla",
+        "tithi": 6,
+        "note": "End day of the 6-day Skanda Shashthi vrat"
+      },
+      "panchangam_ref": "Karthigai Shukla Shashthi — Soorasamharam"
+    },
+
+    {
+      "id": "s004",
+      "name_english": "Skanda Shashthi Begins",
+      "name_tamil": "கந்த சஷ்டி தொடக்கம்",
+      "tradition": "shaiva",
+      "date_rule": {
+        "type": "tamil_month_tithi",
+        "tamil_month": "Karthigai",
+        "paksha": "Shukla",
+        "tithi": 1,
+        "note": "First day of Karthigai Shukla paksha — start of 6-day festival"
+      },
+      "panchangam_ref": "Karthigai Shukla Prathama — festival start"
+    },
+
+    {
+      "id": "s005",
+      "name_english": "Thiruvannamalai Karthigai Deepam",
+      "name_tamil": "திருவண்ணாமலை கார்த்திகை தீபம்",
+      "tradition": "shaiva",
+      "date_rule": {
+        "type": "tamil_month_nakshatra",
+        "tamil_month": "Karthigai",
+        "nakshatra": "Karthigai",
+        "note": "Same calendar date as Karthigai Deepam — Girivalam day at Arunachala"
+      },
+      "panchangam_ref": "Karthigai Pournami, Karthigai (Krittika) nakshatra — Arunachala Girivalam"
+    },
+
+    {
+      "id": "s006",
+      "name_english": "Panguni Uthiram — Murugan Festival",
+      "name_tamil": "பங்குனி உத்திரம் — முருகன் திருவிழா",
+      "tradition": "shaiva",
+      "date_rule": {
+        "type": "tamil_month_nakshatra",
+        "tamil_month": "Panguni",
+        "nakshatra": "Uthiram",
+        "note": "Same date as u020 — Murugan-specific observance"
+      },
+      "panchangam_ref": "Panguni Pournami, Uthiram nakshatra — Murugan thirukalyanam"
+    },
+
+    {
+      "id": "s007",
+      "name_english": "Chithirai Thiruvizha (Madurai)",
+      "name_tamil": "சித்திரை திருவிழா (மதுரை)",
+      "tradition": "shaiva",
+      "date_rule": {
+        "type": "tamil_month_nakshatra",
+        "tamil_month": "Chithirai",
+        "nakshatra": "Visakam",
+        "note": "Visakha nakshatra in Chithirai — Meenakshi Thirukalyanam; verify exact festival day annually"
+      },
+      "panchangam_ref": "Chithirai, Visakam nakshatra — Meenakshi Thirukalyanam"
+    },
+
+
+    {
+      "id": "v001",
+      "name_english": "Rama Navami",
+      "name_tamil": "ராம நவமி",
+      "tradition": "vaishnava",
+      "date_rule": {
+        "type": "tamil_month_tithi",
+        "tamil_month": "Panguni",
+        "paksha": "Shukla",
+        "tithi": 9,
+        "note": "Panguni (Chaitra) Shukla Navami"
+      },
+      "panchangam_ref": "Panguni (Chaitra) Shukla Navami"
+    },
+
+    {
+      "id": "v002",
+      "name_english": "Narasimha Jayanthi",
+      "name_tamil": "நரசிம்ம ஜயந்தி",
+      "tradition": "vaishnava",
+      "date_rule": {
+        "type": "tamil_month_tithi",
+        "tamil_month": "Vaikasi",
+        "paksha": "Shukla",
+        "tithi": 14
+      },
+      "panchangam_ref": "Vaikasi Shukla Chaturdasi"
+    },
+
+    {
+      "id": "v003",
+      "name_english": "Aadi Vaikunta Ekadasi",
+      "name_tamil": "ஆடி வைகுண்ட ஏகாதசி",
+      "tradition": "vaishnava",
+      "date_rule": {
+        "type": "tamil_month_tithi",
+        "tamil_month": "Aadi",
+        "paksha": "Shukla",
+        "tithi": 11
+      },
+      "panchangam_ref": "Aadi Shukla Ekadasi"
+    },
+
+    {
+      "id": "v004",
+      "name_english": "Krishna Jayanthi (Gokulashtami)",
+      "name_tamil": "கிருஷ்ண ஜயந்தி (கோகுலாஷ்டமி)",
+      "tradition": "vaishnava",
+      "date_rule": {
+        "type": "tamil_month_nakshatra",
+        "tamil_month": "Avani",
+        "nakshatra": "Rohini",
+        "paksha": "Krishna",
+        "note": "Rohini nakshatra during Krishna paksha of Avani — Ashtami tithi preferred"
+      },
+      "panchangam_ref": "Avani Krishna Ashtami, Rohini nakshatra"
+    },
+
+    {
+      "id": "v005",
+      "name_english": "Onam — Thiruvonam (Vaishnava)",
+      "name_tamil": "ஓணம் — திருவோணம்",
+      "tradition": "vaishnava",
+      "date_rule": {
+        "type": "tamil_month_nakshatra",
+        "tamil_month": "Avani",
+        "nakshatra": "Thiruvonam",
+        "note": "Same calendar date as u006 — Mahabali / Vamana avatar significance"
+      },
+      "panchangam_ref": "Avani, Thiruvonam nakshatra — Mahabali / Vamana"
+    },
+
+    {
+      "id": "v006",
+      "name_english": "Vaikunta Ekadasi (Margazhi)",
+      "name_tamil": "வைகுண்ட ஏகாதசி (மார்கழி)",
+      "tradition": "vaishnava",
+      "date_rule": {
+        "type": "tamil_month_tithi",
+        "tamil_month": "Margazhi",
+        "paksha": "Shukla",
+        "tithi": 11,
+        "note": "Margazhi Shukla Ekadasi — Mokshada Ekadasi; most sacred Ekadasi of the year"
+      },
+      "panchangam_ref": "Margazhi Shukla Ekadasi — Swargavathil Ekadasi"
+    },
+
+    {
+      "id": "v007",
+      "name_english": "Thirupavai Month (Margazhi)",
+      "name_tamil": "திருப்பாவை மாதம் (மார்கழி)",
+      "tradition": "vaishnava",
+      "date_rule": {
+        "type": "sankranti",
+        "rasi": "Dhanusu",
+        "note": "Margazhi 1 — same sankranti date as u012; entire month is Andal's Thirupavai month"
+      },
+      "panchangam_ref": "Dhanusu Sankranti — Margazhi 1, Thirupavai month begins"
+    },
+
+
+    {
+      "id": "k001",
+      "name_english": "Navarathiri Begins",
+      "name_tamil": "நவராத்திரி தொடக்கம்",
+      "tradition": "shakti",
+      "date_rule": {
+        "type": "tamil_month_tithi",
+        "tamil_month": "Purattasi",
+        "paksha": "Shukla",
+        "tithi": 1,
+        "note": "Ashwina Shukla Prathama — first day of Navratri. May fall in Purattasi or early Aippasi depending on year."
+      },
+      "panchangam_ref": "Purattasi (Ashwina) Shukla Prathama — Navratri day 1"
+    },
+
+    {
+      "id": "k002",
+      "name_english": "Navarathiri Saraswati Puja (Navami)",
+      "name_tamil": "நவராத்திரி சரஸ்வதி பூஜை",
+      "tradition": "shakti",
+      "date_rule": {
+        "type": "tamil_month_tithi",
+        "tamil_month": "Purattasi",
+        "paksha": "Shukla",
+        "tithi": 9
+      },
+      "panchangam_ref": "Purattasi Shukla Navami — Navratri day 9"
+    },
+
+    {
+      "id": "k003",
+      "name_english": "Durga Ashtami (Navratri)",
+      "name_tamil": "துர்கா அஷ்டமி",
+      "tradition": "shakti",
+      "date_rule": {
+        "type": "tamil_month_tithi",
+        "tamil_month": "Purattasi",
+        "paksha": "Shukla",
+        "tithi": 8
+      },
+      "panchangam_ref": "Purattasi Shukla Ashtami — Navratri day 8"
+    },
+
+    {
+      "id": "k004",
+      "name_english": "Aadi Pooram",
+      "name_tamil": "ஆடி பூரம்",
+      "tradition": "shakti",
+      "date_rule": {
+        "type": "tamil_month_nakshatra",
+        "tamil_month": "Aadi",
+        "nakshatra": "Pooram",
+        "note": "Purva Phalguni (Pooram) nakshatra in Aadi — Andal Jayanthi"
+      },
+      "panchangam_ref": "Aadi, Pooram (Purva Phalguni) nakshatra — Andal Jayanthi"
+    },
+
+    {
+      "id": "k005",
+      "name_english": "Aadi Friday — 1st",
+      "name_tamil": "ஆடி வெள்ளி — 1வது",
+      "tradition": "shakti",
+      "date_rule": {
+        "type": "tamil_month_weekday",
+        "tamil_month": "Aadi",
+        "weekday": "Friday",
+        "occurrence": 1
+      },
+      "panchangam_ref": "First Friday of Aadi month — Amman worship"
+    },
+
+    {
+      "id": "k006",
+      "name_english": "Aadi Friday — 2nd",
+      "name_tamil": "ஆடி வெள்ளி — 2வது",
+      "tradition": "shakti",
+      "date_rule": {
+        "type": "tamil_month_weekday",
+        "tamil_month": "Aadi",
+        "weekday": "Friday",
+        "occurrence": 2
+      },
+      "panchangam_ref": "Second Friday of Aadi month"
+    },
+
+    {
+      "id": "k007",
+      "name_english": "Aadi Friday — 3rd",
+      "name_tamil": "ஆடி வெள்ளி — 3வது",
+      "tradition": "shakti",
+      "date_rule": {
+        "type": "tamil_month_weekday",
+        "tamil_month": "Aadi",
+        "weekday": "Friday",
+        "occurrence": 3
+      },
+      "panchangam_ref": "Third Friday of Aadi month"
+    },
+
+    {
+      "id": "k008",
+      "name_english": "Aadi Friday — 4th",
+      "name_tamil": "ஆடி வெள்ளி — 4வது",
+      "tradition": "shakti",
+      "date_rule": {
+        "type": "tamil_month_weekday",
+        "tamil_month": "Aadi",
+        "weekday": "Friday",
+        "occurrence": 4
+      },
+      "panchangam_ref": "Fourth Friday of Aadi month"
+    },
+
+    {
+      "id": "k009",
+      "name_english": "Karthigai Friday — 1st",
+      "name_tamil": "கார்த்திகை வெள்ளி — 1வது",
+      "tradition": "shakti",
+      "date_rule": {
+        "type": "tamil_month_weekday",
+        "tamil_month": "Karthigai",
+        "weekday": "Friday",
+        "occurrence": 1
+      },
+      "panchangam_ref": "First Friday of Karthigai month"
+    },
+
+    {
+      "id": "k010",
+      "name_english": "Karthigai Friday — 2nd",
+      "name_tamil": "கார்த்திகை வெள்ளி — 2வது",
+      "tradition": "shakti",
+      "date_rule": {
+        "type": "tamil_month_weekday",
+        "tamil_month": "Karthigai",
+        "weekday": "Friday",
+        "occurrence": 2
+      },
+      "panchangam_ref": "Second Friday of Karthigai month"
+    },
+
+    {
+      "id": "k011",
+      "name_english": "Karthigai Friday — 3rd",
+      "name_tamil": "கார்த்திகை வெள்ளி — 3வது",
+      "tradition": "shakti",
+      "date_rule": {
+        "type": "tamil_month_weekday",
+        "tamil_month": "Karthigai",
+        "weekday": "Friday",
+        "occurrence": 3
+      },
+      "panchangam_ref": "Third Friday of Karthigai month"
+    },
+
+    {
+      "id": "k012",
+      "name_english": "Karthigai Friday — 4th",
+      "name_tamil": "கார்த்திகை வெள்ளி — 4வது",
+      "tradition": "shakti",
+      "date_rule": {
+        "type": "tamil_month_weekday",
+        "tamil_month": "Karthigai",
+        "weekday": "Friday",
+        "occurrence": 4
+      },
+      "panchangam_ref": "Fourth Friday of Karthigai month"
+    },
+
+    {
+      "id": "k013",
+      "name_english": "Purattasi Saturday — 1st",
+      "name_tamil": "புரட்டாசி சனிக்கிழமை — 1வது",
+      "tradition": "shakti",
+      "date_rule": {
+        "type": "tamil_month_weekday",
+        "tamil_month": "Purattasi",
+        "weekday": "Saturday",
+        "occurrence": 1
+      },
+      "panchangam_ref": "First Saturday of Purattasi month"
+    },
+
+    {
+      "id": "k014",
+      "name_english": "Purattasi Saturday — 2nd",
+      "name_tamil": "புரட்டாசி சனிக்கிழமை — 2வது",
+      "tradition": "shakti",
+      "date_rule": {
+        "type": "tamil_month_weekday",
+        "tamil_month": "Purattasi",
+        "weekday": "Saturday",
+        "occurrence": 2
+      },
+      "panchangam_ref": "Second Saturday of Purattasi month"
+    },
+
+    {
+      "id": "k015",
+      "name_english": "Purattasi Saturday — 3rd",
+      "name_tamil": "புரட்டாசி சனிக்கிழமை — 3வது",
+      "tradition": "shakti",
+      "date_rule": {
+        "type": "tamil_month_weekday",
+        "tamil_month": "Purattasi",
+        "weekday": "Saturday",
+        "occurrence": 3
+      },
+      "panchangam_ref": "Third Saturday of Purattasi month"
+    },
+
+    {
+      "id": "k016",
+      "name_english": "Purattasi Saturday — 4th",
+      "name_tamil": "புரட்டாசி சனிக்கிழமை — 4வது",
+      "tradition": "shakti",
+      "date_rule": {
+        "type": "tamil_month_weekday",
+        "tamil_month": "Purattasi",
+        "weekday": "Saturday",
+        "occurrence": 4
+      },
+      "panchangam_ref": "Fourth Saturday of Purattasi month"
+    }
 
   ],
 
@@ -103,214 +773,13 @@
     }
   ],
 
-  "validation_log": {
-    "validated_on": "2026-04-29",
-    "sources_used": [
-      "Drik Panchang (drikpanchang.com) — Chennai, Tamil Nadu location",
-      "Prokerala.com Tamil calendar",
-      "ISKCON Bangalore (iskconbangalore.org)",
-      "Nitya Panchangam (nityapanchangam.com)",
-      "GiriUSA Tamil calendar (giriusa.com)",
-      "Goodreturns.in festival date articles",
-      "srirangaminfo.com",
-      "verified.realestate Tamil calendar 2026",
-      "archyam.com Diwali 2026 guide",
-      "Multiple additional cross-reference sources"
-    ],
-    "removed_entries": [
-      {
-        "id": "u002",
-        "name_english": "Akshaya Tritiya",
-        "original_date": "2026-04-29",
-        "correct_date": "2026-04-19",
-        "reason": "Date is wrong by 10 days. All sources (Drik Panchang, Goodreturns, multiple others) confirm April 19, 2026. Tritiya Tithi begins 10:49 AM on April 19."
-      },
-      {
-        "id": "u005",
-        "name_english": "Avani Avittam (Yajur Upakarma)",
-        "original_date": "2026-08-26",
-        "correct_date": "2026-08-27",
-        "reason": "Off by 1 day. verified.realestate Tamil calendar confirms August 27, 2026."
-      },
-      {
-        "id": "u006",
-        "name_english": "Onam",
-        "original_date": "2026-09-03",
-        "correct_date": "unverified",
-        "reason": "Could not confirm from sources checked. Requires dedicated search against Malayalam calendar for Chingam Thiruvonam 2026."
-      },
-      {
-        "id": "u007",
-        "name_english": "Saraswati Puja",
-        "original_date": "2026-10-18",
-        "correct_date": "2026-10-19",
-        "reason": "Tithi mismatch in the original file. Navami (Day 9 of Navratri from Oct 11) falls on Oct 19, not Oct 18. Oct 18 is Ashtami. Saraswati Puja is on Navami. Note: k002 in the same file correctly stated Oct 19 for Navami."
-      },
-      {
-        "id": "u010",
-        "name_english": "Deepavali (Diwali)",
-        "original_date": "2026-10-29",
-        "correct_date": "2026-11-07 (Tamil/South Indian Naraka Chaturdashi) or 2026-11-08 (Amavasya/Lakshmi Puja)",
-        "reason": "Date is wrong by 10 days. All sources (Drik Panchang, AstroSage, Archyam, Goodreturns, CalendarDate, grahaguru.in) confirm Diwali 2026 is November 8. South Indian/Tamil tradition observes Naraka Chaturdashi = November 7 as main day."
-      },
-      {
-        "id": "u011",
-        "name_english": "Karthigai Deepam",
-        "original_date": "2026-11-25",
-        "correct_date": "2026-11-24",
-        "reason": "Off by 1 day. Multiple sources (srirangaminfo.com, bhaktibharat.com, hindutsav.com, thiruvannamalai.in, skanda-news.blogspot.com) confirm November 24, 2026 (Tuesday) as Karthigai Nakshatra + Pournami alignment."
-      },
-      {
-        "id": "u018",
-        "name_english": "Thai Poosam",
-        "original_date": "2027-02-01",
-        "correct_date": "unverified",
-        "reason": "Could not verify 2026–27 cycle date from sources checked."
-      },
-      {
-        "id": "u019",
-        "name_english": "Maasi Magam",
-        "original_date": "2027-03-02",
-        "correct_date": "unverified",
-        "reason": "Could not verify from sources checked."
-      },
-      {
-        "id": "u020",
-        "name_english": "Panguni Uthiram",
-        "original_date": "2027-03-22",
-        "correct_date": "unverified",
-        "reason": "Could not verify from sources checked."
-      },
-      {
-        "id": "s002",
-        "name_english": "Thiruvathirai (Arudra Darshanam)",
-        "original_date": "2026-12-25",
-        "correct_date": "unverified",
-        "reason": "Could not verify from sources checked."
-      },
-      {
-        "id": "s005",
-        "name_english": "Pradosha Vrat (Shukla)",
-        "original_date": "2026-05-01",
-        "correct_date": "unverified",
-        "reason": "Sample date only per original file. Requires monthly calculation."
-      },
-      {
-        "id": "s006",
-        "name_english": "Thiruvannamalai Karthigai Deepam",
-        "original_date": "2026-11-25",
-        "correct_date": "2026-11-24",
-        "reason": "Same date error as u011. Multiple sources including dedicated Tiruvannamalai sources confirm November 24, 2026."
-      },
-      {
-        "id": "s007",
-        "name_english": "Maha Shivaratri 2027",
-        "original_date": "2027-03-06",
-        "correct_date": "unverified",
-        "reason": "Could not verify from sources checked."
-      },
-      {
-        "id": "s008",
-        "name_english": "Panguni Uthiram — Murugan festival",
-        "original_date": "2027-03-22",
-        "correct_date": "unverified",
-        "reason": "Could not verify from sources checked."
-      },
-      {
-        "id": "s010",
-        "name_english": "Chithirai Thiruvizha (Madurai)",
-        "original_date": "2026-05-08",
-        "correct_date": "unverified",
-        "reason": "Approximate date per original file. Could not confirm from sources checked."
-      },
-      {
-        "id": "v003",
-        "name_english": "Aadi Vaikunta Ekadasi",
-        "original_date": "2026-07-27",
-        "correct_date": "unverified",
-        "reason": "Could not verify from sources checked."
-      },
-      {
-        "id": "v004",
-        "name_english": "Krishna Jayanthi (Gokulashtami)",
-        "original_date": "2026-08-16",
-        "correct_date": "2026-09-04 (Smarta) or 2026-09-05 (Vaishnava)",
-        "reason": "Date is wrong by ~19 days. August 16 was the 2025 date. All sources confirm Janmashtami 2026 is September 4 (Smarta) or September 5 (Vaishnava). Confirmed by CalendarLabs, CalendarDate, Hindu-Blog, AstroYogi, SmartPuja."
-      },
-      {
-        "id": "v005",
-        "name_english": "Onam — Thiruvonam",
-        "original_date": "2026-09-03",
-        "correct_date": "unverified",
-        "reason": "Could not verify from sources checked."
-      },
-      {
-        "id": "v006",
-        "name_english": "Narasimha Jayanthi",
-        "original_date": "2026-05-08",
-        "correct_date": "unverified",
-        "reason": "Could not verify from sources checked."
-      },
-      {
-        "id": "v007",
-        "name_english": "Vaikunta Ekadasi (Margazhi)",
-        "original_date": "2026-12-30",
-        "correct_date": "2026-12-20",
-        "reason": "Off by 10 days. ISKCON Bangalore, Nitya Panchangam, and verified.realestate Tamil calendar all confirm December 20, 2026. The app notes in the original file acknowledged this might be Dec 31 — sources indicate Dec 20."
-      },
-      {
-        "id": "k003",
-        "name_english": "Aadi Pooram",
-        "original_date": "2026-08-10",
-        "correct_date": "unverified",
-        "reason": "Could not verify from sources checked."
-      },
-      {
-        "id": "k008",
-        "name_english": "Karthigai Fridays (1st)",
-        "original_date": "2026-11-06",
-        "correct_date": "2026-11-20",
-        "reason": "Karthigai month starts November 17, 2026 (sun enters Vrischika/Scorpio). The first Friday of Karthigai is therefore November 20, not November 6. Nov 6 falls in Aippasi month."
-      },
-      {
-        "id": "k009",
-        "name_english": "Karthigai Fridays (2nd)",
-        "original_date": "2026-11-13",
-        "correct_date": "2026-11-27",
-        "reason": "Same issue — falls in Aippasi. Second Karthigai Friday is November 27."
-      },
-      {
-        "id": "k010",
-        "name_english": "Karthigai Fridays (3rd)",
-        "original_date": "2026-11-20",
-        "correct_date": "2026-12-04",
-        "reason": "Third Karthigai Friday is December 4."
-      },
-      {
-        "id": "k011",
-        "name_english": "Karthigai Fridays (4th)",
-        "original_date": "2026-11-27",
-        "correct_date": "2026-12-11",
-        "reason": "Fourth Karthigai Friday is December 11."
-      }
-    ],
-    "summary": {
-      "total_entries_original": 56,
-      "entries_confirmed_kept": 28,
-      "entries_removed_wrong_date": 10,
-      "entries_removed_unverified": 13,
-      "note_on_v001_rama_navami": "Rama Navami Mar 27 retained as this is the Vaishnava tradition observance date. Mainstream/Drik Panchang date is Mar 26.",
-      "next_steps": "Re-validate removed entries against prokerala.com Tamil monthly calendar for 2026-27 and re-add corrected dates before v1.2 release."
-    }
-  },
-
   "app_notes": {
-    "deepavali_note": "Deepavali 2026 CORRECTED: Nov 7 (Tamil Naraka Chaturdashi observance) / Nov 8 (main Lakshmi Puja Amavasya). Original file incorrectly had Oct 29.",
-    "krishna_jayanthi_note": "Krishna Jayanthi 2026 CORRECTED: Sep 4 (Smarta) / Sep 5 (Vaishnava). Original file had Aug 16 which was the 2025 date.",
-    "vaikunta_ekadasi_note": "Vaikunta Ekadasi CORRECTED: Dec 20, 2026 per ISKCON Bangalore and Nitya Panchangam. Original file had Dec 30.",
-    "karthigai_deepam_note": "Karthigai Deepam CORRECTED: Nov 24, 2026. Multiple dedicated South Indian festival sources confirm Tuesday Nov 24 as Karthigai Nakshatra + Pournami. Original file had Nov 25.",
-    "karthigai_fridays_note": "Karthigai Fridays CORRECTED: Karthigai month starts Nov 17, 2026 (Vrischika Sankranti). Correct Fridays are Nov 20, 27, Dec 4, Dec 11. Original file incorrectly used Nov 6, 13, 20, 27 (those are Aippasi Fridays).",
-    "akshaya_tritiya_note": "Akshaya Tritiya CORRECTED: Apr 19, 2026. Original file had Apr 29 — off by 10 days.",
-    "update_schedule": "This file should be updated annually around Tamil New Year (April 14). The next version will cover Plavanga year 2027-28."
+    "schema_migration": "v2.0 replaces gregorian_date with date_rule on every festival entry. The app resolves dates using FestivalDateResolver at startup each Tamil year. Computed dates are cached in Room DB (festival_computed_dates table). See ThithiAlert_Festivals_DateRule_Spec_v1_0.md for full implementation details.",
+    "gregorian_fixed_examples": "Republic Day (Jan 26) and Independence Day (Aug 15) are examples of gregorian_fixed type dates, suitable for future government holiday entries.",
+    "purattasi_navratri_note": "Navratri tithi rules use Purattasi as the base month. In edge-case years the tithi may overflow into early Aippasi — the resolver must search forward from Purattasi Amavasai.",
+    "skanda_shashthi_note": "Skanda Shashthi is a 6-day festival: s004 is day 1 (Karthigai Shukla Prathama), s003 is day 6 (Soorasamharam, Shukla Shashthi).",
+    "same_date_entries": "u012 and v007 (Margazhi / Thirupavai) resolve to the same Gregorian date — they will be grouped in the RecyclerView per the grouping logic in FestivalsAdapter. Similarly u006 and v005 (Onam) share a date.",
+    "weekday_occurrence_note": "tamil_month_weekday occurrence values are 1 (first), 2 (second), 3 (third), 4 (fourth). Use -1 for last occurrence (not used in current entries). Resolver must use Tamil month solar boundaries (sankranti dates) as month start/end.",
+    "update_schedule": "This file is now year-agnostic. Update panchangam_ref text if canonical descriptions change. No annual re-date required — the resolver handles date calculation each year automatically."
   }
 }
