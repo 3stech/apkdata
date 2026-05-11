@@ -1,0 +1,155 @@
+{
+  "version": "1.0",
+  "items": [
+    {
+      "id": 1,
+      "imageUrl": "https://3stech.github.io/apkdata/huse-app/images/image_001.jpg",
+      "readMoreUrl": "https://en.wikipedia.org/wiki/History_of_Tamil_Nadu",
+      "category": { "en": "History", "ta": "வரலாறு" },
+      "headline": {
+        "en": "Tamil Nadu's Story: From Stone Age Caves to Modern Cities",
+        "ta": "தமிழ்நாடின் கதை: கல் யுகக் குகைகளிலிருந்து நவீன நகரங்கள் வரை"
+      },
+      "text": {
+        "en": "Tamil Nadu's history stretches back over 6,000 years. It begins with prehistoric people who lived in caves and used stone tools. Then came the Sangam Age (300 BC – 300 AD) — a golden period of poetry, trade, and powerful kingdoms. After that, great empires like the Pallavas, Cholas, and Pandyas took turns ruling the land, each leaving behind magnificent temples and cities. The medieval period saw constant battles but also brilliant art and culture. Then the Europeans arrived — first the Portuguese, then the British — and Tamil Nadu became part of the British Empire. In 1947, India gained independence. Today Tamil Nadu is one of India's most developed states, yet its ancient roots remain very much alive.",
+        "ta": "தமிழ்நாடின் வரலாறு சுமார் 6,000 ஆண்டுகளுக்கும் மேலாக உள்ளது. ஆரம்பத்தில் மக்கள் குகைகளில் வாழ்ந்து கல் கருவிகளை பயன்படுத்தினார்கள். பிறகு சங்க காலம் (கி.மு. 300 – கி.பி. 300) வந்தது — கவிதை, வணிகம், வலிமையான அரசுகள் நிறைந்த தங்க காலம். அதற்கு பிறகு பல்லவர்கள், சோழர்கள், பாண்டியர்கள் போன்ற பெரிய அரசுகள் இந்த நாட்டை ஆண்டன — ஒவ்வொன்றும் அழகிய கோவில்களையும் நகரங்களையும் கட்டி வைத்தன. பிறகு ஐரோப்பியர்கள் வந்தனர் — முதலில் போர்த்துகீசியர்கள், பிறகு ஆங்கிலேயர்கள். 1947-ல் இந்தியா சுதந்திரம் பெற்றது. இன்று தமிழ்நாடு இந்தியாவின் முன்னேறிய மாநிலங்களில் ஒன்று — ஆனால் அதன் பழைய வேர்கள் இன்றும் உயிரோடு இருக்கின்றன."
+      },
+      "readMoreLabel": { "en": "Read more", "ta": "மேலும் படிக்க" }
+    },
+    {
+      "id": 2,
+      "imageUrl": "https://3stech.github.io/apkdata/huse-app/images/image_002.jpg",
+      "readMoreUrl": "https://en.wikipedia.org/wiki/Dravidian_architecture",
+      "category": { "en": "Culture", "ta": "கலாச்சாரம்" },
+      "headline": {
+        "en": "How Tamil Temples Are Built: A System Designed Over 2,000 Years",
+        "ta": "தமிழ் கோவில்கள் எப்படி கட்டப்படுகின்றன: 2,000 ஆண்டுகளில் உருவான ஒரு அமைப்பு"
+      },
+      "text": {
+        "en": "Tamil temples are not built randomly — they follow a very precise system called Agama Shastra, an ancient rulebook for temple design. Every Tamil temple has a Gopuram — the tall, pyramid-shaped tower at the entrance covered with colourful sculptures. Inside, there is always a Garbhagriha — a small, dark inner room where the main deity lives. Surrounding it are corridors, water tanks called Theerthams, and large pillared halls called Mandapams. The tallest Gopuram in the world is at the Ranganathaswamy Temple in Srirangam — it stands 73 metres high. Even the direction a temple faces, the size of each room, and the position of every sculpture is decided by ancient rules. Tamil temple architecture is truly one of humanity's greatest engineering achievements.",
+        "ta": "தமிழ் கோவில்கள் யோசிக்காமல் கட்டப்படுவதில்லை — ஆகம சாஸ்திரம் என்ற பழைய நூலில் உள்ள விதிகளின்படி கட்டப்படுகின்றன. ஒவ்வொரு தமிழ் கோவிலிலும் ஒரு கோபுரம் இருக்கும் — நுழைவாயிலில் நிற்கும் உயரமான, பிரமிட் வடிவ கோபுரம், அதில் நிறைய சிலைகள் இருக்கும். உள்ளே கர்பகிருஹம் என்ற சிறிய இருண்ட அறையில் கடவுள் இருப்பார். அதை சுற்றி நடைமாடங்கள், தீர்த்தங்கள் என்ற நீர்த்தொட்டிகள், மண்டபங்கள் என்ற தூண் நிறைந்த பெரிய கூடங்கள் இருக்கும். உலகின் மிக உயரமான கோபுரம் சிரீரங்கத்தில் உள்ள ரங்கநாதசுவாமி கோவிலில் இருக்கிறது — அது 73 மீட்டர் உயரம். கோவில் எந்த திசையில் இருக்கும், ஒவ்வொரு அறையும் எவ்வளவு பெரியதாக இருக்கும் என்பது எல்லாம் பழைய விதிகளின்படி தீர்மானிக்கப்படுகிறது."
+      },
+      "readMoreLabel": { "en": "Read more", "ta": "மேலும் படிக்க" }
+    },
+    {
+      "id": 3,
+      "imageUrl": "https://3stech.github.io/apkdata/huse-app/images/image_003.jpg",
+      "readMoreUrl": "https://en.wikipedia.org/wiki/Tamil_culture",
+      "category": { "en": "Culture", "ta": "கலாச்சாரம்" },
+      "headline": {
+        "en": "Tamil Festivals, Food, and Daily Life: A Culture Built Around Community",
+        "ta": "தமிழ் திருவிழாக்கள், உணவு, அன்றாட வாழ்க்கை: சமூகத்தை மையமாக வைத்து கட்டப்பட்ட கலாச்சாரம்"
+      },
+      "text": {
+        "en": "Tamil culture is one of the world's oldest living cultures. Pongal, celebrated every January, is Tamil Nadu's biggest harvest festival — families cook fresh rice in clay pots outdoors and give thanks to the sun and cattle. Karthigai Deepam fills homes and streets with thousands of oil lamps. Tamil food is built around rice, lentils, tamarind, and coconut — a banana leaf meal is still the traditional way to eat at celebrations. Classical arts like Bharatanatyam dance and Carnatic music have been practiced for over 2,000 years. In villages, Kolam — intricate patterns drawn with rice flour at the doorstep every morning — is both art and daily prayer. Tamil culture is not just history — it is something millions of people live every single day.",
+        "ta": "தமிழ் கலாச்சாரம் உலகின் மிகவும் பழமையான உயிரோடுள்ள கலாச்சாரங்களில் ஒன்று. ஒவ்வொரு ஜனவரியிலும் கொண்டாடப்படும் பொங்கல் தமிழ்நாட்டின் மிக பெரிய திருவிழா — குடும்பங்கள் வெளியில் மண் பானைகளில் புதிய அரிசி சமைத்து சூரியனுக்கும் மாடுகளுக்கும் நன்றி சொல்கிறார்கள். கார்த்திகை தீபம் வீடுகளையும் தெருக்களையும் ஆயிரக்கணக்கான எண்ணெய் விளக்குகளால் நிரப்புகிறது. தமிழ் உணவு அரிசி, பருப்பு, புளி, தேங்காய் ஆகியவற்றை மையமாக கொண்டது — விழாக்களில் வாழை இலையில் சாப்பிடுவது இன்னும் பாரம்பரிய வழக்கம். பரதநாட்டியமும் கர்நாடக இசையும் 2,000 ஆண்டுகளுக்கும் மேலாக வாழ்கின்றன. கிராமங்களில் கோலம் — ஒவ்வொரு காலையிலும் வாசலில் அரிசி மாவால் வரையும் அழகான வடிவங்கள் — கலையும் நாளின் ஆரம்பமும் ஆகும். தமிழ் கலாச்சாரம் வெறும் வரலாறு அல்ல — கோடிக்கணக்கான மக்கள் இன்றும் வாழும் வாழ்க்கை."
+      },
+      "readMoreLabel": { "en": "Read more", "ta": "மேலும் படிக்க" }
+    },
+    {
+      "id": 4,
+      "imageUrl": "https://3stech.github.io/apkdata/huse-app/images/image_004.jpg",
+      "readMoreUrl": "https://en.wikipedia.org/wiki/Sangam_period",
+      "category": { "en": "Society", "ta": "சமூகம்" },
+      "headline": {
+        "en": "Ancient Tamil Villages Had Their Own Courts, Banks, and Democracy",
+        "ta": "பழைய தமிழ் கிராமங்களுக்கு தனியான நீதிமன்றங்கள், வங்கிகள், மக்களாட்சி இருந்தது"
+      },
+      "text": {
+        "en": "Thousands of years before modern governments, ancient Tamil Nadu had a remarkably organised local system. Villages were run by assemblies called Ur, Sabhai, and Nadu — like mini-parliaments where local people gathered to make decisions about land, water, taxes, and justice. Stone inscriptions found across Tamil Nadu record these meetings in detail — who attended, what was decided, and what punishments were given. Temples were not just places of worship — they were community centres, banks, and schools. Merchants had their own guilds that set rules for trade. Women in some villages had the right to participate in local assemblies. This was not a primitive society — it was a well-organised community that solved problems at the local level, long before the idea became popular worldwide.",
+        "ta": "நவீன அரசுகள் உருவாவதற்கு ஆயிரக்கணக்கான ஆண்டுகளுக்கு முன்பே பழைய தமிழ்நாட்டில் ஒரு சிறப்பான உள்ளூர் அமைப்பு இருந்தது. கிராமங்கள் ஊர், சபை, நாடு என்று அழைக்கப்படும் கூட்டங்களால் நடத்தப்பட்டன — ஊர் மக்கள் ஒன்றுகூடி நிலம், தண்ணீர், வரி, நீதி ஆகியவற்றைப் பற்றி முடிவு எடுத்தனர். தமிழ்நாடு முழுவதும் கிடைத்த கல் கல்வெட்டுகள் இந்தக் கூட்டங்களை விரிவாகப் பதிவு செய்கின்றன. கோவில்கள் வழிபாட்டு இடங்கள் மட்டுமல்ல — சமூக மையங்கள், வங்கிகள், பாடசாலைகளாகவும் செயல்பட்டன. வணிகர்களுக்கு தனியான குழுக்கள் இருந்தன. சில கிராமங்களில் பெண்களுக்கும் உள்ளூர் கூட்டங்களில் பங்கேற்கும் உரிமை இருந்தது. இது ஒரு தாழ்ந்த சமூகம் அல்ல — பிரச்சினைகளை உள்ளூரிலேயே தீர்த்த ஒரு நல்ல அமைப்பு."
+      },
+      "readMoreLabel": { "en": "Read more", "ta": "மேலும் படிக்க" }
+    },
+    {
+      "id": 5,
+      "imageUrl": "https://3stech.github.io/apkdata/huse-app/images/image_005.jpg",
+      "readMoreUrl": "https://en.wikipedia.org/wiki/Chola_dynasty",
+      "category": { "en": "History", "ta": "வரலாறு" },
+      "headline": {
+        "en": "The Empires That Built Tamil Nadu: Pallavas, Cholas, Pandyas, and Cheras",
+        "ta": "தமிழ்நாட்டை கட்டிய அரசுகள்: பல்லவர்கள், சோழர்கள், பாண்டியர்கள், சேரர்கள்"
+      },
+      "text": {
+        "en": "Four great dynasties shaped Tamil Nadu over 2,000 years. The Pallavas (275–897 AD) were master builders — they carved the famous Shore Temple at Mahabalipuram directly out of rock. The Cholas (9th–13th century) were the most powerful — their navy sailed as far as Southeast Asia, and they built the magnificent Brihadeeswarar Temple at Thanjavur. The Pandyas ruled from Madurai and were great supporters of Tamil literature — they funded the ancient Sangam academies where poets gathered. The Cheras controlled the western coast (present-day Kerala) and grew rich from spice trade with Rome and Arabia. These four dynasties were rivals — but together, their temples, poems, and trade networks created the rich Tamil civilisation we inherit today.",
+        "ta": "நான்கு பெரிய அரசுகள் 2,000 ஆண்டுகளுக்கும் மேலாக தமிழ்நாட்டை உருவாக்கின. பல்லவர்கள் (கி.பி. 275–897) கோவில் கட்டுவதில் மிகவும் சிறந்தவர்கள் — மாமல்லபுரத்தில் உள்ள கடற்கரை கோவிலை நேரடியாக பாறையிலிருந்து செதுக்கினர். சோழர்கள் (9–13 நூற்றாண்டு) மிகவும் வலிமையான அரசு — அவர்களின் கடற்படை தென்கிழக்கு ஆசியா வரை சென்றது, தஞ்சாவூரில் உள்ள பிரிஹதீஸ்வரர் கோவிலை கட்டினர். பாண்டியர்கள் மதுரையிலிருந்து ஆண்டு தமிழ் இலக்கியத்திற்கு உதவினர் — கவிஞர்கள் ஒன்றுகூடும் சங்கங்களுக்கு பணம் கொடுத்தனர். சேரர்கள் மேற்குக் கரையை (இன்றைய கேரளா) கட்டுப்படுத்தி ரோம், அரேபியாவுடன் வணிகம் செய்து பணக்காரர்களானார்கள். இந்த நான்கு அரசுகளும் போட்டியாளர்கள் — ஆனால் சேர்ந்து அவர்கள் கட்டிய கோவில்களும் எழுதிய கவிதைகளும் நடத்திய வணிகமும் இன்றைய தமிழ் கலாச்சாரத்தை உருவாக்கின."
+      },
+      "readMoreLabel": { "en": "Read more", "ta": "மேலும் படிக்க" }
+    },
+    {
+      "id": 6,
+      "imageUrl": "https://3stech.github.io/apkdata/huse-app/images/image_006.jpg",
+      "readMoreUrl": "https://en.wikipedia.org/wiki/Ancient_Tamil_trade",
+      "category": { "en": "History", "ta": "வரலாறு" },
+      "headline": {
+        "en": "Tamil Merchants Traded With Rome 2,000 Years Ago — and Got Paid in Gold",
+        "ta": "தமிழ் வணிகர்கள் 2,000 ஆண்டுகளுக்கு முன்பே ரோமுடன் வணிகம் செய்தனர் — தங்கத்தில் கட்டணம் பெற்றனர்"
+      },
+      "text": {
+        "en": "Two thousand years ago, Tamil Nadu was one of the world's greatest trading hubs. The port of Puhar (Kaveripattinam) was so busy with foreign ships that ancient Roman writers mentioned it in their texts. Tamil merchants exported pepper, pearls, ivory, cotton, and precious gems. In return, they received Roman gold coins — thousands of these coins have been dug up in Tamil Nadu even today. Silk arrived from China. Horses came from Arabia. The ancient poem Purananuru describes ships from distant lands anchoring at Tamil ports. Tamil merchants formed powerful trade guilds — the most famous was the Ayyavole guild, which had its own flags, guards, and rules. Tamil Nadu's prosperity 2,000 years ago was built entirely on the sea.",
+        "ta": "இரண்டாயிரம் ஆண்டுகளுக்கு முன்பு தமிழ்நாடு உலகின் மிகவும் பெரிய வணிக மையங்களில் ஒன்றாக இருந்தது. புகார் (காவிரிப்பட்டினம்) துறைமுகம் வெளிநாட்டு கப்பல்களால் மிகவும் நிரம்பியிருந்தது — பழைய ரோம எழுத்தாளர்கள் அதைப் பற்றி எழுதியுள்ளனர். தமிழ் வணிகர்கள் மிளகு, முத்து, தந்தம், பருத்தி, விலையுயர்ந்த கற்களை ஏற்றுமதி செய்தனர். பதிலாக ரோம தங்க நாணயங்கள் வந்தன — இன்றும் தமிழ்நாட்டில் ஆயிரக்கணக்கான அந்த நாணயங்கள் தோண்டி எடுக்கப்படுகின்றன. சீனாவிலிருந்து பட்டு வந்தது. அரேபியாவிலிருந்து குதிரைகள் வந்தன. புறநானூறு என்ற பழைய கவிதை தொகுப்பு தொலைதூர நாடுகளிலிருந்து கப்பல்கள் தமிழ் துறைமுகங்களில் நங்கூரமிட்டதை விவரிக்கிறது. 2,000 ஆண்டுகளுக்கு முன்பு தமிழ்நாட்டின் செழிப்பு கடலை அடிப்படையாக கொண்டிருந்தது."
+      },
+      "readMoreLabel": { "en": "Read more", "ta": "மேலும் படிக்க" }
+    },
+    {
+      "id": 7,
+      "imageUrl": "https://3stech.github.io/apkdata/huse-app/images/image_007.jpg",
+      "readMoreUrl": "https://en.wikipedia.org/wiki/Bharatanatyam",
+      "category": { "en": "Culture", "ta": "கலாச்சாரம்" },
+      "headline": {
+        "en": "Entertainment in Ancient Tamil Nadu: Dance, Music, and Stories Told Under the Stars",
+        "ta": "பழைய தமிழ்நாட்டில் கொண்டாட்டம்: நட்சத்திரங்களின் கீழ் நடனம், இசை, கதைகள்"
+      },
+      "text": {
+        "en": "Ancient Tamils loved entertainment as much as anyone today. Temples were not just for prayer — huge festivals called Mahotsavams brought entire towns together for music, dance, and theatre for days at a time. Bharatanatyam, one of India's oldest classical dances, was performed by dancers in temples. Street theatre called Therukoothu is still performed in villages today — actors in bright costumes act out stories from Hindu epics through the night. Villuppaattu was storytelling using a bow-shaped instrument to narrate tales with music. Silambam — a staff-fighting martial art — was both sport and performance. The Sangam poems describe warriors and lovers enjoying music played on the Yaazh, a harp unique to ancient Tamil Nadu.",
+        "ta": "பழைய தமிழர்கள் இன்றைய நம்மைப் போலவே கொண்டாட்டங்களை விரும்பினர். கோவில்கள் வெறும் வழிபாட்டு இடங்கள் மட்டுமல்ல — மகோத்சவங்கள் என்ற பெரிய திருவிழாக்கள் நாட்கணக்கில் இசை, நடனம், நாடகம் கொண்டுவந்தன. பரதநாட்டியம் — இந்தியாவின் மிகவும் பழமையான கலைகளில் ஒன்று — கோவில்களில் ஆடப்பட்டது. தெருக்கூத்து என்ற தெரு நாடகம் இன்றும் கிராமங்களில் நடக்கிறது — நடிகர்கள் இரவு முழுவதும் வண்ணமயமான உடைகளில் கதைகளை நடித்துக் காட்டுகிறார்கள். வில்லுப்பாட்டு என்பது வில் வடிவ கருவியுடன் இசையுடன் கதை சொல்வது. சிலம்பம் என்ற தடி சண்டை கலை விளையாட்டும் கலையும் ஒன்றாக இருந்தது. சங்க கவிதைகள் யாழ் என்ற கருவியில் இசை வாசிக்கும் வீரர்களையும் காதலர்களையும் விவரிக்கின்றன."
+      },
+      "readMoreLabel": { "en": "Read more", "ta": "மேலும் படிக்க" }
+    },
+    {
+      "id": 8,
+      "imageUrl": "https://3stech.github.io/apkdata/huse-app/images/image_008.jpg",
+      "readMoreUrl": "https://en.wikipedia.org/wiki/British_Raj",
+      "category": { "en": "History", "ta": "வரலாறு" },
+      "headline": {
+        "en": "Life Under the British: How Tamil Nadu Changed Between 1800 and 1947",
+        "ta": "ஆங்கிலேயர் ஆட்சியில் வாழ்க்கை: 1800 முதல் 1947 வரை தமிழ்நாடு எப்படி மாறியது"
+      },
+      "text": {
+        "en": "When the British took control of Madras (Chennai) in the 1800s, life in Tamil Nadu changed dramatically. New railways connected towns for the first time. English-medium schools and colleges opened — education became a path to government jobs. A new middle class of clerks, lawyers, and teachers emerged in cities. But for most villagers, life was hard — heavy taxes, forced labour, and famines caused by British policies killed thousands. Indian goods like cotton textiles were replaced by cheaper British imports, destroying many local crafts. Yet this period also gave rise to great Tamil reformers like Periyar, who fought against caste discrimination, and early freedom fighters who demanded independence. The British period left Tamil Nadu with railways and English education — but also with deep wounds that took generations to heal.",
+        "ta": "1800-களில் ஆங்கிலேயர்கள் மதராஸை (சென்னை) கட்டுப்படுத்தியபோது தமிழ்நாட்டில் வாழ்க்கை மிகவும் மாறியது. புதிய ரயில்வேகள் முதல் முறையாக நகரங்களை இணைத்தன. ஆங்கிலம் கற்றுக்கொடுக்கும் பள்ளிகளும் கல்லூரிகளும் திறந்தன — படிப்பு அரசு வேலைக்கான வழியாக மாறியது. எழுத்தர்கள், வழக்கறிஞர்கள், ஆசிரியர்கள் என்ற புதிய நடுத்தர வர்க்கம் உருவானது. ஆனால் பெரும்பாலான கிராம மக்களுக்கு வாழ்க்கை கஷ்டமாக இருந்தது — கனமான வரிகள், வலிந்து வேலை வாங்குதல், ஆங்கிலேயர் கொள்கைகளால் ஏற்பட்ட பஞ்சம் ஆயிரக்கணக்கானோரை கொன்றது. உள்ளூர் தொழில்கள் அழிந்தன. இந்தக் காலத்தில் பெரியார் போன்ற சமூக சீர்திருத்தவாதிகளும் சுதந்திர போராளிகளும் உருவானார்கள். ஆங்கிலேயர் காலம் தமிழ்நாட்டிற்கு ரயில்வேயும் ஆங்கிலக் கல்வியும் கொடுத்தது — ஆனால் ஆழமான வலியையும் விட்டுச் சென்றது."
+      },
+      "readMoreLabel": { "en": "Read more", "ta": "மேலும் படிக்க" }
+    },
+    {
+      "id": 9,
+      "imageUrl": "https://3stech.github.io/apkdata/huse-app/images/image_009.jpg",
+      "readMoreUrl": "https://en.wikipedia.org/wiki/Education_in_Tamil_Nadu",
+      "category": { "en": "Education", "ta": "கல்வி" },
+      "headline": {
+        "en": "From Gurukul to Google: How Tamil Nadu's Education Has Evolved Over 2,000 Years",
+        "ta": "குருகுலத்திலிருந்து கூகுள் வரை: தமிழ்நாட்டின் கல்வி 2,000 ஆண்டுகளில் எப்படி மாறியது"
+      },
+      "text": {
+        "en": "Education in Tamil Nadu has gone through three big changes. First came the Gurukul system — students lived with their teacher for years, learning philosophy, mathematics, medicine, and the arts entirely by memory. Then came temple schools where Tamil grammar, astrology, and music were taught near the sanctum. The British period brought the third change — missionary schools introduced English, printing, and Western science, making education accessible to far more people. After independence, Tamil Nadu led the country with free mid-day meals in government schools — a Tamil Nadu innovation that kept poor children in school and is now copied nationwide. Today Tamil Nadu has one of India's highest literacy rates, and its students consistently perform well in national engineering and medical entrance exams.",
+        "ta": "தமிழ்நாட்டின் கல்வி மூன்று பெரிய மாற்றங்களை கடந்து வந்தது. முதலில் குருகுல முறை — மாணவர்கள் ஆண்டுகளாக ஆசிரியருடன் வாழ்ந்து தத்துவம், கணிதம், மருத்துவம், கலை எல்லாவற்றையும் மனப்பாடம் செய்தனர். புத்தகங்கள் இல்லை. பிறகு கோவில் பள்ளிகளில் தமிழ் இலக்கணம், வானியல், இசை கற்றனர். ஆங்கிலேயர் காலம் மூன்றாவது மாற்றத்தை கொண்டு வந்தது — மிஷனரி பள்ளிகள் ஆங்கிலம், அச்சுக்கலை, மேற்கத்திய அறிவியல் அறிமுகப்படுத்தின. சுதந்திரத்திற்கு பிறகு தமிழ்நாடு இலவச மதிய உணவு திட்டத்தை தொடங்கியது — ஏழை குழந்தைகள் பள்ளியில் தொடர்ந்து படிக்க உதவியது, இப்போது இந்தியா முழுவதும் பின்பற்றப்படுகிறது. இன்று தமிழ்நாட்டில் இந்தியாவின் மிக அதிகமான கல்வி அறிவு விகிதங்களில் ஒன்று உள்ளது."
+      },
+      "readMoreLabel": { "en": "Read more", "ta": "மேலும் படிக்க" }
+    },
+    {
+      "id": 10,
+      "imageUrl": "https://3stech.github.io/apkdata/huse-app/images/image_010.jpg",
+      "readMoreUrl": "https://en.wikipedia.org/wiki/Indian_mathematics",
+      "category": { "en": "Science", "ta": "அறிவியல்" },
+      "headline": {
+        "en": "Ancient Tamil Scholars Knew Astronomy, Surgery, and Maths Long Before Modern Science",
+        "ta": "பழைய தமிழ் அறிஞர்கள் நவீன அறிவியலுக்கு முன்பே வானியல், மருத்துவம், கணிதம் அறிந்திருந்தனர்"
+      },
+      "text": {
+        "en": "Ancient Tamil Nadu had deep knowledge systems long before Western science arrived. Tamil astronomers tracked the movements of stars and planets so accurately that the Tamil calendar — the Panchangam — is still used today to set festival dates. Siddha medicine, developed by Tamil sages called Siddhars, used herbs, minerals, and yoga to treat illness — some of these plant-based treatments are now being studied by modern scientists. The Siddhars also wrote about the human body, breathing techniques, and meditation centuries before these became widely known. Mathematical concepts including early decimal calculations appear in ancient Tamil texts. Thiruvalluvar's Kural contains observations that reflect a scientific mindset — logical, evidence-based, and clear. Tamil knowledge was not superstition — it was the result of careful, patient observation of the natural world.",
+        "ta": "மேற்கத்திய அறிவியல் வருவதற்கு முன்பே பழைய தமிழ்நாட்டில் ஆழமான அறிவு இருந்தது. தமிழ் வானியல் அறிஞர்கள் நட்சத்திரங்கள் மற்றும் கோள்களின் இயக்கங்களை மிகவும் துல்லியமாக கணித்தனர் — பஞ்சாங்கம் என்று அழைக்கப்படும் தமிழ் நாட்காட்டி இன்றும் திருவிழா நாட்களை நிர்ணயிக்க பயன்படுத்தப்படுகிறது. சித்தர்கள் என்ற தமிழ் முனிவர்களால் உருவாக்கப்பட்ட சித்த மருத்துவம் நோய்களை குணப்படுத்த மூலிகைகள், கனிமங்கள், யோகா பயன்படுத்தியது — அதன் சில மருந்துகளை நவீன விஞ்ஞானிகள் இப்போது ஆராய்கின்றனர். சித்தர்கள் மனித உடல் அமைப்பு, சுவாசிக்கும் முறைகள், தியானம் பற்றி நூற்றாண்டுகளுக்கு முன்பே எழுதினார்கள். திருவள்ளுவரின் குறளில் கூட தர்க்கரீதியான, சான்றுகளை அடிப்படையாக கொண்ட அறிவியல் சிந்தனை தெரிகிறது. பழைய தமிழர்களின் அறிவு மூடநம்பிக்கை அல்ல — இயற்கையை பொறுமையாக கவனித்து கற்ற அறிவு."
+      },
+      "readMoreLabel": { "en": "Read more", "ta": "மேலும் படிக்க" }
+    }
+  ]
+}
