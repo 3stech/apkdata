@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>hUSE</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=DM+Sans:wght@400;500&family=Noto+Sans+Tamil:wght@400;500;600&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ── Reset & base ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --nav-h: 52px;
+      --nav-bg: #0f1923;
+      --nav-accent: #e8c84a;
+      --card-radius: 18px;
+      --transition: 0.38s cubic-bezier(0.4, 0, 0.2, 1);
+
+      /* category colours */
+      --c-history:   #c0392b;
+      --c-gk:        #1a6fb5;
+      --c-ethics:    #6c5ce7;
+      --c-philosophy:#0d7a5f;
+      --c-science:   #d97706;
+      --c-default:   #555;
+    }
+
+    html, body {
+      height: 100%;
+      overflow: hidden;
+      background: #0f1923;
+      font-family: 'DM Sans', sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── Top nav ── */
+    #nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: var(--nav-h);
+      background: var(--nav-bg);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 18px;
+      z-index: 100;
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+    }
+
+    #nav .brand {
+      font-family: 'Playfair Display', serif;
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--nav-accent);
+      letter-spacing: -0.3px;
+    }
+
+    #nav .brand span {
+      color: rgba(255,255,255,0.45);
+      font-size: 11px;
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 400;
+      letter-spacing: 0.5px;
+      display: block;
+      margin-top: -4px;
+    }
+
+    /* language toggle */
+    #lang-toggle {
+      display: flex;
+      background: rgba(255,255,255,0.08);
+      border-radius: 20px;
+      padding: 3px;
+      gap: 2px;
+    }
+
+    #lang-toggle button {
+      border: none;
+      background: transparent;
+      color: rgba(255,255,255,0.5);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 13px;
+      font-weight: 500;
+      padding: 5px 14px;
+      border-radius: 16px;
+      cursor: pointer;
+      transition: all 0.2s;
+      line-height: 1;
+    }
+
+    #lang-toggle button.active {
+      background: var(--nav-accent);
+      color: #0f1923;
+      font-weight: 700;
+    }
+
+    /* ── Viewport area below nav ── */
+    #viewport {
+      position: fixed;
+      top: var(--nav-h);
+      left: 0; right: 0; bottom: 0;
+      overflow: hidden;
+    }
+
+    /* ── Card ── */
+    .card {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      background: #fff;
+      will-change: transform;
+      transition: transform var(--transition), opacity var(--transition);
+    }
+
+    .card.enter-from-bottom  { transform: translateY(100%); }
+    .card.enter-from-top     { transform: translateY(-100%); }
+    .card.exit-to-top        { transform: translateY(-100%); opacity: 0; }
+    .card.exit-to-bottom     { transform: translateY(100%); opacity: 0; }
+    .card.active             { transform: translateY(0); opacity: 1; }
+
+    /* image pane */
+    .card-image {
+      flex: 0 0 50%;
+      position: relative;
+      overflow: hidden;
+      background: #1a2533;
+    }
+
+    .card-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: opacity 0.3s;
+    }
+
+    .card-image img.loading { opacity: 0; }
+
+    /* gradient overlay on image bottom */
+    .card-image::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 40%;
+      background: linear-gradient(to top, rgba(0,0,0,0.45), transparent);
+      pointer-events: none;
+    }
+
+    /* counter badge on image */
+    .counter {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      background: rgba(0,0,0,0.5);
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+      color: rgba(255,255,255,0.85);
+      font-size: 11px;
+      font-weight: 500;
+      padding: 4px 10px;
+      border-radius: 20px;
+      letter-spacing: 0.5px;
+      z-index: 2;
+    }
+
+    /* category badge on image bottom-left */
+    .category-badge {
+      position: absolute;
+      bottom: 14px;
+      left: 14px;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      padding: 4px 10px;
+      border-radius: 20px;
+      z-index: 2;
+      color: #fff;
+      background: var(--badge-color, var(--c-default));
+    }
+
+    /* content pane */
+    .card-content {
+      flex: 1 1 50%;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      padding: 18px 20px 14px;
+    }
+
+    .card-headline {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(16px, 4.2vw, 20px);
+      font-weight: 700;
+      line-height: 1.3;
+      color: #111;
+      margin-bottom: 10px;
+      flex-shrink: 0;
+    }
+
+    .card-text {
+      font-size: clamp(13px, 3.5vw, 15px);
+      line-height: 1.65;
+      color: #444;
+      flex: 1 1 auto;
+      overflow-y: auto;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+      padding-right: 2px;
+    }
+
+    .card-text::-webkit-scrollbar { display: none; }
+
+    .card-footer {
+      flex-shrink: 0;
+      margin-top: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-top: 10px;
+      border-top: 1px solid #f0f0f0;
+    }
+
+    .read-more {
+      font-size: 13px;
+      font-weight: 500;
+      color: #1a6fb5;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .read-more::after {
+      content: '↗';
+      font-size: 12px;
+    }
+
+    /* nav arrows */
+    .nav-arrows {
+      display: flex;
+      gap: 8px;
+    }
+
+    .nav-arrows button {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      border: 1px solid #e8e8e8;
+      background: #f8f8f8;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      color: #333;
+      transition: background 0.15s;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .nav-arrows button:hover { background: #eee; }
+    .nav-arrows button:disabled { opacity: 0.3; cursor: default; }
+
+    /* Tamil font override */
+    .lang-ta .card-headline,
+    .lang-ta .card-text,
+    .lang-ta .read-more,
+    .lang-ta .category-badge {
+      font-family: 'Noto Sans Tamil', sans-serif;
+    }
+
+    .lang-ta .card-headline {
+      font-size: clamp(14px, 3.8vw, 18px);
+      font-weight: 600;
+      line-height: 1.5;
+    }
+
+    .lang-ta .card-text {
+      font-size: clamp(12px, 3.3vw, 14px);
+      line-height: 1.8;
+    }
+
+    /* swipe hint on first load */
+    #swipe-hint {
+      position: fixed;
+      bottom: 30px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(0,0,0,0.6);
+      color: #fff;
+      font-size: 12px;
+      padding: 7px 16px;
+      border-radius: 20px;
+      pointer-events: none;
+      z-index: 200;
+      opacity: 1;
+      transition: opacity 0.5s;
+      white-space: nowrap;
+    }
+
+    #swipe-hint.hidden { opacity: 0; }
+
+    /* loading state */
+    #loading {
+      position: fixed;
+      inset: 0;
+      background: #0f1923;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      z-index: 300;
+      transition: opacity 0.4s;
+    }
+
+    #loading.hidden { opacity: 0; pointer-events: none; }
+
+    #loading .logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 42px;
+      font-weight: 700;
+      color: var(--nav-accent);
+      margin-bottom: 8px;
+    }
+
+    #loading .tagline {
+      font-size: 12px;
+      color: rgba(255,255,255,0.4);
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+    }
+
+    #loading .spinner {
+      margin-top: 32px;
+      width: 28px;
+      height: 28px;
+      border: 2px solid rgba(255,255,255,0.1);
+      border-top-color: var(--nav-accent);
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+    }
+
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    /* error state */
+    #error-msg {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: #0f1923;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: 12px;
+      color: rgba(255,255,255,0.6);
+      font-size: 14px;
+      text-align: center;
+      padding: 40px;
+      z-index: 300;
+    }
+
+    #error-msg.show { display: flex; }
+    #error-msg strong { color: #fff; font-size: 18px; }
+  </style>
+</head>
+<body>
+
+<!-- Loading screen -->
+<div id="loading">
+  <div class="logo">hUSE</div>
+  <div class="tagline">Know Your World</div>
+  <div class="spinner"></div>
+</div>
+
+<!-- Error screen -->
+<div id="error-msg">
+  <strong>Could not load content</strong>
+  <span id="error-detail">Make sure content.json is reachable and CORS is enabled.</span>
+</div>
+
+<!-- Top nav -->
+<nav id="nav">
+  <div class="brand">
+    hUSE
+    <span>KNOW YOUR WORLD</span>
+  </div>
+  <div id="lang-toggle">
+    <button id="btn-en" class="active" onclick="setLang('en')">EN</button>
+    <button id="btn-ta" onclick="setLang('ta')">த</button>
+  </div>
+</nav>
+
+<!-- Card viewport -->
+<div id="viewport"></div>
+
+<!-- Swipe hint -->
+<div id="swipe-hint">Swipe up for next</div>
+
+<script>
+  // ── CONFIG — change this to your raw GitHub URL ──────────────────────────
+  const CONTENT_URL = './content.json';
+  // ─────────────────────────────────────────────────────────────────────────
+
+  const CATEGORY_COLORS = {
+    'History':         '#c0392b',
+    'வரலாறு':          '#c0392b',
+    'General Knowledge':'#1a6fb5',
+    'பொது அறிவு':       '#1a6fb5',
+    'Ethics':          '#6c5ce7',
+    'நெறிமுறை':         '#6c5ce7',
+    'Philosophy':      '#0d7a5f',
+    'தத்துவம்':          '#0d7a5f',
+    'Science':         '#d97706',
+    'அறிவியல்':          '#d97706',
+  };
+
+  let items = [];
+  let current = 0;
+  let lang = 'en';
+  let isAnimating = false;
+
+  // touch tracking
+  let touchStartY = 0;
+  let touchStartX = 0;
+
+  // ── Fetch content ─────────────────────────────────────────────────────────
+  async function loadContent() {
+    try {
+      const res = await fetch(CONTENT_URL);
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      const data = await res.json();
+      items = data.items || data;
+      if (!items.length) throw new Error('No items found in JSON');
+      hideLoading();
+      renderCard(current, 'none');
+      showSwipeHint();
+    } catch (err) {
+      document.getElementById('error-detail').textContent = err.message;
+      document.getElementById('error-msg').classList.add('show');
+      document.getElementById('loading').classList.add('hidden');
+    }
+  }
+
+  function hideLoading() {
+    const el = document.getElementById('loading');
+    el.classList.add('hidden');
+    setTimeout(() => el.remove(), 500);
+  }
+
+  function showSwipeHint() {
+    const hint = document.getElementById('swipe-hint');
+    setTimeout(() => hint.classList.add('hidden'), 2400);
+    setTimeout(() => hint.remove(), 3000);
+  }
+
+  // ── Lang toggle ───────────────────────────────────────────────────────────
+  function setLang(l) {
+    lang = l;
+    document.getElementById('btn-en').classList.toggle('active', l === 'en');
+    document.getElementById('btn-ta').classList.toggle('active', l === 'ta');
+    // re-render current card in place (no slide animation)
+    if (items.length) renderCard(current, 'none');
+  }
+
+  // ── Card rendering ────────────────────────────────────────────────────────
+  function t(field) {
+    if (!field) return '';
+    return typeof field === 'string' ? field : (field[lang] || field['en'] || '');
+  }
+
+  function badgeColor(item) {
+    const cat = t(item.category);
+    return CATEGORY_COLORS[cat] || '#555';
+  }
+
+  function buildCard(item, idx) {
+    const color = badgeColor(item);
+    const div = document.createElement('div');
+    div.className = `card ${lang === 'ta' ? 'lang-ta' : ''}`;
+    div.innerHTML = `
+      <div class="card-image">
+        <img src="${item.imageUrl}" alt="" class="loading"
+             onload="this.classList.remove('loading')"
+             onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22800%22 height=%22400%22%3E%3Crect fill=%22%231a2533%22 width=%22800%22 height=%22400%22/%3E%3C/svg%3E'" />
+        <span class="counter">${idx + 1} / ${items.length}</span>
+        <span class="category-badge" style="background:${color}">${t(item.category)}</span>
+      </div>
+      <div class="card-content">
+        <div class="card-headline">${t(item.headline)}</div>
+        <div class="card-text">${t(item.text)}</div>
+        <div class="card-footer">
+          <a class="read-more" href="${item.readMoreUrl}" target="_blank" rel="noopener">
+            ${t(item.readMoreLabel) || 'Read more'}
+          </a>
+          <div class="nav-arrows">
+            <button onclick="go(-1)" ${idx === 0 ? 'disabled' : ''} title="Previous">↑</button>
+            <button onclick="go(1)"  ${idx === items.length - 1 ? 'disabled' : ''} title="Next">↓</button>
+          </div>
+        </div>
+      </div>
+    `;
+    return div;
+  }
+
+  // direction: 'up' | 'down' | 'none'
+  function renderCard(idx, direction) {
+    const vp = document.getElementById('viewport');
+    const newCard = buildCard(items[idx], idx);
+
+    if (direction === 'none') {
+      vp.innerHTML = '';
+      newCard.classList.add('active');
+      vp.appendChild(newCard);
+      return;
+    }
+
+    const oldCard = vp.querySelector('.card.active');
+
+    // new card starts off-screen
+    newCard.classList.add(direction === 'up' ? 'enter-from-bottom' : 'enter-from-top');
+    vp.appendChild(newCard);
+
+    // force reflow
+    newCard.getBoundingClientRect();
+
+    isAnimating = true;
+
+    // animate both
+    if (oldCard) {
+      oldCard.classList.remove('active');
+      oldCard.classList.add(direction === 'up' ? 'exit-to-top' : 'exit-to-bottom');
+    }
+    newCard.classList.remove('enter-from-bottom', 'enter-from-top');
+    newCard.classList.add('active');
+
+    setTimeout(() => {
+      if (oldCard) oldCard.remove();
+      isAnimating = false;
+    }, 420);
+  }
+
+  function go(delta) {
+    if (isAnimating) return;
+    const next = current + delta;
+    if (next < 0 || next >= items.length) return;
+    const direction = delta > 0 ? 'up' : 'down';
+    current = next;
+    renderCard(current, direction);
+  }
+
+  // ── Touch / swipe ─────────────────────────────────────────────────────────
+  document.addEventListener('touchstart', e => {
+    touchStartY = e.touches[0].clientY;
+    touchStartX = e.touches[0].clientX;
+  }, { passive: true });
+
+  document.addEventListener('touchend', e => {
+    const dy = touchStartY - e.changedTouches[0].clientY;
+    const dx = Math.abs(touchStartX - e.changedTouches[0].clientX);
+    if (Math.abs(dy) < 40 || dx > Math.abs(dy) * 0.8) return; // too small or horizontal
+    go(dy > 0 ? 1 : -1);
+  }, { passive: true });
+
+  // ── Keyboard ──────────────────────────────────────────────────────────────
+  document.addEventListener('keydown', e => {
+    if (e.key === 'ArrowUp' || e.key === 'ArrowLeft')  go(-1);
+    if (e.key === 'ArrowDown' || e.key === 'ArrowRight') go(1);
+  });
+
+  // ── Mouse wheel (desktop) ─────────────────────────────────────────────────
+  let wheelLock = false;
+  document.addEventListener('wheel', e => {
+    if (wheelLock) return;
+    go(e.deltaY > 0 ? 1 : -1);
+    wheelLock = true;
+    setTimeout(() => wheelLock = false, 600);
+  }, { passive: true });
+
+  // ── Boot ──────────────────────────────────────────────────────────────────
+  loadContent();
+</script>
+</body>
+</html>
