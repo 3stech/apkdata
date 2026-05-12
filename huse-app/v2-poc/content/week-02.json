@@ -1,1 +1,367 @@
+{
+  "meta": {
+    "week": 2,
+    "week_code": "w02",
+    "month": "May 2026",
+    "curriculum": "Class VI History",
+    "theme": "Early Tamil Civilisation",
+    "theme_tm": "ஆரம்பகால தமிழ் நாகரிகம்",
+    "image_base_url": "https://3stech.github.io/apkdata/huse-app/images/"
+  },
 
+  "topics": [
+    {
+      "id": "thiruvalluvar",
+      "color": "#F5A623",
+      "title": {
+        "en": "Thiruvalluvar & the Kural",
+        "tm": "திருவள்ளுவரும் குறளும்"
+      },
+      "days": [
+        {
+          "day": 1,
+          "image": "w02-thiruvalluvar-d1.jpg",
+          "label": {
+            "en": "Who Was He?",
+            "tm": "அவர் யார்?"
+          },
+          "fact": {
+            "en": "Thiruvalluvar was a Tamil poet-philosopher, widely dated to around 200 BCE–300 CE. His true identity remains fiercely debated — Jain scholars, Saivite scholars, and secular rationalists all claim his legacy. That nobody can fully own him is perhaps the greatest proof that his wisdom truly transcended all religious and social boundaries.",
+            "tm": "திருவள்ளுவர் கி.மு. 200 முதல் கி.பி. 300 வரை வாழ்ந்த தமிழ் கவிஞர்-தத்துவஞானி. சமண, சைவ மற்றும் மதச்சார்பற்ற அறிஞர்கள் அனைவரும் அவரை தமதாகக் கொள்கின்றனர். யாரும் அவரை முழுமையாக தமதாக்கிக் கொள்ள முடியாதது — அவரின் ஞானம் எல்லைகளைத் தாண்டியது என்பதற்கு மிகப்பெரிய சான்று."
+          }
+        },
+        {
+          "day": 2,
+          "image": "w02-thiruvalluvar-d2.jpg",
+          "label": {
+            "en": "The Book of 1,330",
+            "tm": "1,330 குறட்பாக்கள்"
+          },
+          "fact": {
+            "en": "He authored the Thirukkural — 1,330 couplets divided into three books: Virtue (Aram), Wealth (Porul), and Love (Inbam). Each couplet contains exactly 7 Tamil words. This mathematical precision, maintained across all 1,330 verses, has fascinated scholars and linguists for over two thousand years.",
+            "tm": "அவர் திருக்குறளை இயற்றினார் — அறம், பொருள் மற்றும் இன்பம் என மூன்று பிரிவுகளில் 1,330 குறட்பாக்கள். ஒவ்வொரு குறட்பாவிலும் சரியாக 7 தமிழ் சொற்கள். 1,330 பாடல்களிலும் இந்த கணிதத் துல்லியம் கடைப்பிடிக்கப்பட்டுள்ளது — இரண்டாயிரம் ஆண்டுகளாக அறிஞர்களை வியக்க வைக்கும் நுட்பம்."
+          }
+        },
+        {
+          "day": 3,
+          "image": "w02-thiruvalluvar-d3.jpg",
+          "label": {
+            "en": "Translated into 80+ Languages",
+            "tm": "80+ மொழிகளில் மொழிபெயர்ப்பு"
+          },
+          "fact": {
+            "en": "The Kural has been translated into over 80 languages, making it one of the most translated texts in world literature. Pope Innocent XI received a copy in 1677 CE — nearly a century before the Western Enlightenment began championing the same ideas of reason, ethics, and universal human dignity.",
+            "tm": "குறள் 80-க்கும் மேற்பட்ட மொழிகளில் மொழிபெயர்க்கப்பட்டுள்ளது. 1677-ல் போப் இன்னோசன்ட் XI ஒரு பிரதியைப் பெற்றார் — மேற்கத்திய அறிவொளி இயக்கம் நேர்மை, நீதி மற்றும் உலகளாவிய மனித கண்ணியம் பற்றிப் பேசத் தொடங்குவதற்கு ஒரு நூற்றாண்டு முன்பே."
+          }
+        },
+        {
+          "day": 4,
+          "image": "w02-thiruvalluvar-d4.jpg",
+          "label": {
+            "en": "Ahead of His Time",
+            "tm": "காலத்தை வென்றவர்"
+          },
+          "fact": {
+            "en": "The Kural advocated vegetarianism, non-violence, and the dignity of women — centuries before these became global debates. An entire chapter called Pulal Maruthal is a careful ethical argument against eating meat, rooted in compassion rather than religion. Valluvar's moral reasoning reads like a modern philosopher, not an ancient one.",
+            "tm": "குறள் சைவ உணவு, அஹிம்சை மற்றும் பெண்ணின் கண்ணியத்தை வலியுறுத்தியது — இவை உலகளாவிய விவாதங்களாவதற்கு நூற்றாண்டுகளுக்கு முன்பே. 'புலால் மறுத்தல்' என்ற அத்தியாயம் இறைச்சி உண்ணாமைக்கான கவனமான நெறிமுறை வாதம் — மதம் அல்ல, அனுகம்பை அடிப்படையாக கொண்டது."
+          }
+        },
+        {
+          "day": 5,
+          "image": "w02-thiruvalluvar-d5.jpg",
+          "label": {
+            "en": "The 133-Foot Legacy",
+            "tm": "133 அடி சிலை"
+          },
+          "fact": {
+            "en": "A 133-foot statue of Thiruvalluvar stands at the southern tip of India at Kanyakumari, where three seas meet. The height is deliberate — one foot for each of the 133 chapters of the Thirukkural. Unveiled on 1 January 2000, it was witnessed by over half a million people.",
+            "tm": "கன்னியாகுமரியில் மூன்று கடல்கள் சங்கமிக்கும் இடத்தில் 133 அடி உயர திருவள்ளுவர் சிலை நிற்கிறது. உயரம் திட்டமிடப்பட்டது — குறளின் 133 அத்தியாயங்களுக்கு ஒவ்வொரு அடியாக. 2000 ஜனவரி 1 அன்று ஐந்து லட்சத்துக்கும் மேற்பட்ட மக்கள் மத்தியில் திறக்கப்பட்டது."
+          }
+        }
+      ]
+    },
+
+    {
+      "id": "chola-dynasty",
+      "color": "#EF4444",
+      "title": {
+        "en": "The Chola Dynasty",
+        "tm": "சோழர் வம்சம்"
+      },
+      "days": [
+        {
+          "day": 1,
+          "image": "w02-chola-dynasty-d1.jpg",
+          "label": {
+            "en": "1,500 Years of Power",
+            "tm": "1,500 ஆண்டு ஆட்சி"
+          },
+          "fact": {
+            "en": "The Chola dynasty ruled from around 300 BCE to 1279 CE — over 1,500 years of continuous Tamil power. For comparison, the Roman Empire lasted roughly 500 years, and the British Empire roughly 400. No other Indian dynasty came close to this duration.",
+            "tm": "சோழ வம்சம் கி.மு. 300 முதல் கி.பி. 1279 வரை — 1,500 ஆண்டுகளுக்கும் மேலாக ஆட்சி செய்தது. ஒப்பீட்டிற்கு, ரோமன் சாம்ராஜ்யம் சுமார் 500 ஆண்டுகளும், பிரிட்டிஷ் சாம்ராஜ்யம் சுமார் 400 ஆண்டுகளும் நீடித்தன. எந்த இந்திய வம்சமும் இந்த கால அளவை நெருங்கவில்லை."
+          }
+        },
+        {
+          "day": 2,
+          "image": "w02-chola-dynasty-d2.jpg",
+          "label": {
+            "en": "An Ocean-Spanning Empire",
+            "tm": "கடல் கடந்த சாம்ராஜ்யம்"
+          },
+          "fact": {
+            "en": "At their peak under Rajaraja Chola I and Rajendra Chola I, the Cholas controlled South India, Sri Lanka, the Maldives, and coastal regions of Southeast Asia. They created one of the ancient world's greatest maritime empires — ruling lands that no Indian king before them had governed.",
+            "tm": "ராஜராஜ சோழன் I மற்றும் ராஜேந்திர சோழன் I-ன் கீழ், சோழர்கள் தென்னிந்தியா, இலங்கை, மாலதீவுகள் மற்றும் தென்கிழக்கு ஆசியாவின் கடலோர பகுதிகளை ஆட்சி செய்தனர். ஒரு இந்திய மன்னனும் இதுவரை ஆட்சி செய்யாத நிலங்களை கட்டுப்படுத்திய மாபெரும் கடல் சாம்ராஜ்யம்."
+          }
+        },
+        {
+          "day": 3,
+          "image": "w02-chola-dynasty-d3.jpg",
+          "label": {
+            "en": "World's Tallest Structure",
+            "tm": "உலகின் உயரமான கட்டிடம்"
+          },
+          "fact": {
+            "en": "The Brihadeeswarar Temple in Thanjavur, completed in 1010 CE, was the tallest structure on earth at the time — its 66-metre vimana towering above every other human-built structure. Over a thousand years later it still stands, a UNESCO World Heritage Site and an engineering achievement that astonishes architects today.",
+            "tm": "தஞ்சாவூரில் 1010 CE-ல் கட்டிய பிரகதீஸ்வர கோயில் அப்போது உலகின் மிக உயரமான கட்டிடம் — 66 மீட்டர் விமானம் மற்ற அனைத்து மனித கட்டமைப்புகளையும் தாண்டி நின்றது. ஆயிரம் ஆண்டுகளுக்கும் மேலாக நின்று நிலைத்திருக்கும் இது இப்போது யுனெஸ்கோ உலக பாரம்பரிய தளம்."
+          }
+        },
+        {
+          "day": 4,
+          "image": "w02-chola-dynasty-d4.jpg",
+          "label": {
+            "en": "India's First Sea Campaign",
+            "tm": "இந்தியாவின் முதல் கடல் படை"
+          },
+          "fact": {
+            "en": "Rajendra Chola launched one of history's first recorded overseas military expeditions — crossing the Bay of Bengal to defeat the Srivijaya Empire in modern-day Malaysia and Indonesia. No Indian king before him had projected military power this far across open ocean. It remains one of the most audacious campaigns in Asian history.",
+            "tm": "ராஜேந்திர சோழன் வரலாற்றில் பதிவான முதல் கடல்கடந்த படையெடுப்புகளில் ஒன்றை நடத்தினான் — வங்காள விரிகுடாவைக் கடந்து இன்றைய மலேசியா மற்றும் இந்தோனேசியாவில் ஸ்ரீவிஜய சாம்ராஜ்யத்தை தோற்கடிக்க. ஆசிய வரலாற்றில் மிகத் துணிச்சலான படையெடுப்புகளில் இதுவும் ஒன்று."
+          }
+        },
+        {
+          "day": 5,
+          "image": "w02-chola-dynasty-d5.jpg",
+          "label": {
+            "en": "Village Democracy",
+            "tm": "கிராம ஜனநாயகம்"
+          },
+          "fact": {
+            "en": "Chola administration introduced local self-governance centuries before modern democracy. The Uttaramerur inscriptions of 920 CE document village election rules — age requirements, term limits, disqualification criteria for corruption — with a precision that would not look out of place in a modern constitution. Tamil villages were electing representatives before Europe had even conceived the idea.",
+            "tm": "சோழ நிர்வாகம் நவீன ஜனநாயகத்திற்கு நூற்றாண்டுகளுக்கு முன்பே உள்ளாட்சி அமைப்பை அறிமுகப்படுத்தியது. கி.பி. 920-ல் உத்திரமேரூர் கல்வெட்டுகள் தேர்தல் விதிகளை — வயது வரம்பு, பதவி காலம், ஊழல் தகுதியிழப்பு — ஆவணப்படுத்துகின்றன. ஐரோப்பா இந்த கோட்பாட்டை கனவிலும் காணாத காலத்தில் தமிழ் கிராமங்கள் பிரதிநிதிகளை தேர்ந்தெடுத்தன."
+          }
+        }
+      ]
+    },
+
+    {
+      "id": "sangam-age",
+      "color": "#22D47A",
+      "title": {
+        "en": "The Sangam Age",
+        "tm": "சங்க காலம்"
+      },
+      "days": [
+        {
+          "day": 1,
+          "image": "w02-sangam-age-d1.jpg",
+          "label": {
+            "en": "Tamil's Golden Era",
+            "tm": "தமிழின் பொற்காலம்"
+          },
+          "fact": {
+            "en": "The Sangam Age (300 BCE–300 CE) is Tamil Nadu's classical golden period — a time when Tamil literature, commerce, and culture flourished independently of northern India. While the Roman Empire was still young, Tamil civilisation already had centuries of literary tradition, bustling ports, and an international reputation for trade.",
+            "tm": "சங்க காலம் (கி.மு. 300 – கி.பி. 300) தமிழ்நாட்டின் பொற்கால சகாப்தம். ரோமன் சாம்ராஜ்யம் இன்னும் இளமையாக இருந்தபோது, தமிழ் நாகரிகம் ஏற்கனவே நூற்றாண்டுகளான இலக்கிய மரபு, கலகலப்பான துறைமுகங்கள் மற்றும் வர்த்தகத்தில் சர்வதேச புகழ் பெற்றிருந்தது."
+          }
+        },
+        {
+          "day": 2,
+          "image": "w02-sangam-age-d2.jpg",
+          "label": {
+            "en": "What Are the Sangams?",
+            "tm": "சங்கம் என்றால் என்ன?"
+          },
+          "fact": {
+            "en": "Sangam refers to literary academies — grand assemblies of scholars and poets who met, debated, and compiled poetry under royal patronage. Three Sangams are said to have existed over thousands of years, with the final one held at Madurai. Their collective output: 2,381 poems that survive in Tamil libraries to this day.",
+            "tm": "சங்கம் என்பது அரசரின் ஆதரவில் கவிஞர்களும் அறிஞர்களும் கூடி விவாதித்து கவிதைகளை தொகுத்த பெரும் இலக்கியக் கழகங்களைக் குறிக்கிறது. மூன்று சங்கங்கள் ஆயிரக்கணக்கான ஆண்டுகளில் நிகழ்ந்ததாக கூறப்படுகிறது, கடைசியது மதுரையில். அவற்றின் மொத்த படைப்பு: இன்றும் தமிழ் நூலகங்களில் பாதுகாக்கப்படும் 2,381 கவிதைகள்."
+          }
+        },
+        {
+          "day": 3,
+          "image": "w02-sangam-age-d3.jpg",
+          "label": {
+            "en": "Rivals of Ancient Greece",
+            "tm": "கிரேக்கர்களுக்கு இணை"
+          },
+          "fact": {
+            "en": "Sangam poems covered love, war, ethics, and nature with a sophistication that rivals ancient Greek literature. They used a precise classification system — Akam (inner/love poetry) and Puram (outer/war and society) — each tied to specific landscapes, seasons, birds, and flowers to convey emotional states through layered symbolism.",
+            "tm": "சங்க கவிதைகள் கிரேக்க இலக்கியத்திற்கு இணையான நுட்பத்துடன் காதல், போர், நீதி மற்றும் இயற்கையை சித்தரித்தன. அகம் (உள்/காதல்) மற்றும் புறம் (வெளி/போர் மற்றும் சமூகம்) என வகைப்படுத்தப்பட்டன — ஒவ்வொரு வகையும் குறிப்பிட்ட நிலப்பரப்புகள், பருவங்கள், பறவைகள் மற்றும் பூக்களுடன் இணைக்கப்பட்டு உணர்வுகளை அடுக்கடுக்கான குறியீடுகளால் வெளிப்படுத்தின."
+          }
+        },
+        {
+          "day": 4,
+          "image": "w02-sangam-age-d4.jpg",
+          "label": {
+            "en": "Rome Came to Trade",
+            "tm": "ரோமர்கள் வணிகத்திற்கு வந்தனர்"
+          },
+          "fact": {
+            "en": "Tamil ports like Poompuhar and Korkai were major international trading hubs. Roman amphorae (wine jars) and gold coins have been excavated at Tamil Nadu sites, confirming direct trade with the Roman Empire. Roman merchants paid in gold for Tamil pepper, fine textiles, and pearls — commodities that commanded premium prices in Mediterranean markets.",
+            "tm": "பூம்புகார் மற்றும் கொற்கை போன்ற தமிழ் துறைமுகங்கள் முக்கிய சர்வதேச வர்த்தக மையங்களாக விளங்கின. தமிழ்நாட்டில் ரோமன் மதுப்பாட்டைகளும் தங்க நாணயங்களும் கண்டுபிடிக்கப்பட்டுள்ளன. ரோம் வணிகர்கள் தமிழ் மிளகு, மென்மையான ஆடைகள் மற்றும் முத்துக்களுக்கு தங்கம் கொடுத்தனர் — நடுநிலக்கடல் சந்தைகளில் கூடுதல் விலை கொடுத்து வாங்கப்பட்ட பொருட்கள்."
+          }
+        },
+        {
+          "day": 5,
+          "image": "w02-sangam-age-d5.jpg",
+          "label": {
+            "en": "Diplomatic Equals of Rome",
+            "tm": "ரோமாவின் இராஜதந்திர நண்பர்கள்"
+          },
+          "fact": {
+            "en": "The Sangam poem Purananuru records a Tamil chief's speech to a visiting Roman embassy — one of the earliest documented diplomatic exchanges in Indian history. Emperor Augustus himself received Tamil ambassadors in 25 BCE. Tamil kings were not peripheral figures in the ancient world; they were geopolitical equals of Rome.",
+            "tm": "புறநானூறு கவிதை ஒரு தமிழ் தலைவரின் ரோமன் தூதரகத்திற்கான உரையை பதிவு செய்கிறது — இந்திய வரலாற்றில் ஆவணப்படுத்தப்பட்ட ஆரம்ப இராஜதந்திர பரிமாற்றங்களில் ஒன்று. கி.மு. 25-ல் அகஸ்டஸ் சக்கரவர்த்தி தமிழ் தூதர்களை வரவேற்றார். தமிழ் மன்னர்கள் பழைய உலகில் ஓரங்கட்டப்பட்ட நபர்கள் அல்ல; அவர்கள் ரோமாவின் புவிசார் அரசியல் சமகாலத்தவர்கள்."
+          }
+        }
+      ]
+    }
+  ],
+
+  "quiz": [
+    {
+      "topic_id": "thiruvalluvar",
+      "question": {
+        "en": "How many couplets does the Thirukkural contain?",
+        "tm": "திருக்குறளில் எத்தனை குறட்பாக்கள் உள்ளன?"
+      },
+      "options": {
+        "en": ["800 couplets", "1,000 couplets", "1,330 couplets", "1,500 couplets"],
+        "tm": ["800 குறட்பாக்கள்", "1,000 குறட்பாக்கள்", "1,330 குறட்பாக்கள்", "1,500 குறட்பாக்கள்"]
+      },
+      "correct_index": 2,
+      "explanation": {
+        "en": "The Thirukkural contains exactly 1,330 couplets, arranged in 133 chapters of 10 couplets each.",
+        "tm": "திருக்குறளில் சரியாக 1,330 குறட்பாக்கள் உள்ளன — 133 அத்தியாயங்களில் தலா 10 குறட்பாக்கள்."
+      }
+    },
+    {
+      "topic_id": "thiruvalluvar",
+      "question": {
+        "en": "The Thiruvalluvar statue in Kanyakumari is 133 feet tall. What does this represent?",
+        "tm": "கன்னியாகுமரியில் திருவள்ளுவர் சிலை 133 அடி உயரம் கொண்டது. இது எதை குறிக்கிறது?"
+      },
+      "options": {
+        "en": ["His estimated age at death", "The 133 chapters of the Kural", "The year 133 CE when he lived", "Distance to Sri Lanka in miles"],
+        "tm": ["இறந்தபோதைய அனுமானிக்கப்பட்ட வயது", "குறளின் 133 அத்தியாயங்கள்", "அவர் வாழ்ந்த 133 CE ஆண்டு", "இலங்கைக்கான தூரம் மைல்களில்"]
+      },
+      "correct_index": 1,
+      "explanation": {
+        "en": "Each foot of the statue represents one of the 133 chapters of the Thirukkural — a deliberate design choice.",
+        "tm": "சிலையின் ஒவ்வொரு அடியும் திருக்குறளின் 133 அத்தியாயங்களில் ஒவ்வொன்றைக் குறிக்கிறது — திட்டமிட்ட வடிவமைப்பு தேர்வு."
+      }
+    },
+    {
+      "topic_id": "chola-dynasty",
+      "question": {
+        "en": "Which sea did Rajendra Chola cross for his famous overseas military campaign?",
+        "tm": "ராஜேந்திர சோழன் தனது பிரசித்தி பெற்ற கடல்கடந்த படையெடுப்பிற்கு எந்த கடலைக் கடந்தான்?"
+      },
+      "options": {
+        "en": ["Arabian Sea", "Indian Ocean", "Bay of Bengal", "Laccadive Sea"],
+        "tm": ["அரேபியக் கடல்", "இந்தியப் பெருங்கடல்", "வங்காள விரிகுடா", "லட்சத்தீவுக் கடல்"]
+      },
+      "correct_index": 2,
+      "explanation": {
+        "en": "Rajendra Chola crossed the Bay of Bengal to defeat the Srivijaya Empire in present-day Malaysia and Indonesia.",
+        "tm": "ராஜேந்திர சோழன் இன்றைய மலேசியா மற்றும் இந்தோனேசியாவில் ஸ்ரீவிஜய சாம்ராஜ்யத்தை தோற்கடிக்க வங்காள விரிகுடாவைக் கடந்தான்."
+      }
+    },
+    {
+      "topic_id": "chola-dynasty",
+      "question": {
+        "en": "The Uttaramerur inscriptions of 920 CE are famous for documenting what?",
+        "tm": "920 CE-ல் உத்திரமேரூர் கல்வெட்டுகள் எதை ஆவணப்படுத்துவதற்காக பிரசித்தி பெற்றவை?"
+      },
+      "options": {
+        "en": ["Naval battle victories", "Temple construction plans", "Village election rules and governance", "Trade routes to Southeast Asia"],
+        "tm": ["கடற்படை போர் வெற்றிகள்", "கோயில் கட்டுமான திட்டங்கள்", "கிராம தேர்தல் விதிகள் மற்றும் ஆட்சி", "தென்கிழக்கு ஆசியாவிற்கான வர்த்தக பாதைகள்"]
+      },
+      "correct_index": 2,
+      "explanation": {
+        "en": "The inscriptions documented detailed village governance rules — age limits, term limits, and disqualification criteria — an early form of democratic self-governance.",
+        "tm": "கல்வெட்டுகள் விரிவான கிராம ஆட்சி விதிகளை ஆவணப்படுத்தின — வயது வரம்பு, பதவி காலம் மற்றும் தகுதியிழப்பு நிபந்தனைகள் — ஜனநாயக சுயாட்சியின் ஆரம்ப வடிவம்."
+      }
+    },
+    {
+      "topic_id": "sangam-age",
+      "question": {
+        "en": "In Sangam poetry, \"Akam\" referred to which category of poetry?",
+        "tm": "சங்க கவிதையில், 'அகம்' எந்த வகை கவிதையைக் குறிக்கிறது?"
+      },
+      "options": {
+        "en": ["War and heroism", "Inner emotional and love poetry", "Religious hymns to gods", "Historical chronicles of kings"],
+        "tm": ["போர் மற்றும் வீரம்", "உள் உணர்வு மற்றும் காதல் கவிதை", "கடவுளருக்கான மத கீதங்கள்", "மன்னர்களின் வரலாற்று நூல்கள்"]
+      },
+      "correct_index": 1,
+      "explanation": {
+        "en": "Akam (inner) covered love and personal emotion. Puram (outer) covered war, death, and public life.",
+        "tm": "அகம் (உள்) காதல் மற்றும் தனிப்பட்ட உணர்வுகளை உள்ளடக்கியது. புறம் (வெளி) போர், மரணம் மற்றும் பொது வாழ்க்கையை உள்ளடக்கியது."
+      }
+    },
+    {
+      "topic_id": "sangam-age",
+      "question": {
+        "en": "What have archaeologists found at Tamil port sites like Poompuhar that proves trade with Rome?",
+        "tm": "பூம்புகார் போன்ற தமிழ் துறைமுக இடங்களில் தொல்பொருள் ஆராய்ச்சியாளர்கள் என்ன கண்டுபிடித்துள்ளனர்?"
+      },
+      "options": {
+        "en": ["Latin inscriptions on temple walls", "Roman wine jars and gold coins", "Roman soldiers buried in Tamil soil", "A Roman temple dedicated to Tamil gods"],
+        "tm": ["கோயில் சுவர்களில் லத்தீன் கல்வெட்டுகள்", "ரோமன் மது பாட்டில்கள் மற்றும் தங்க நாணயங்கள்", "தமிழ் மண்ணில் புதைக்கப்பட்ட ரோமன் வீரர்கள்", "தமிழ் கடவுளருக்கு அர்ப்பணிக்கப்பட்ட ரோமன் கோயில்"]
+      },
+      "correct_index": 1,
+      "explanation": {
+        "en": "Roman amphorae (wine jars) and gold coins excavated at Tamil sites confirm direct two-way trade between Tamil ports and the Roman Empire.",
+        "tm": "தமிழ் இடங்களில் கண்டுபிடிக்கப்பட்ட ரோமன் மதுப்பாட்டைகளும் தங்க நாணயங்களும் தமிழ் துறைமுகங்களுக்கும் ரோமன் சாம்ராஜ்யத்திற்கும் இடையே நேரடி இருவழி வர்த்தகத்தை உறுதிப்படுத்துகின்றன."
+      }
+    }
+  ],
+
+  "bonus": [
+    {
+      "topic_id": "thiruvalluvar",
+      "image": "w02-thiruvalluvar-bonus.jpg",
+      "title": {
+        "en": "The Mystery Nobody Can Agree On",
+        "tm": "யாரும் ஒப்புக்கொள்ள முடியாத மர்மம்"
+      },
+      "body": {
+        "en": "No one knows Thiruvalluvar's caste, religion, or exact era. Jains claim he was Jain. Saivites claim him as Saivite. Secular rationalists claim him as their own. The Kural never mentions god, caste, or sectarian doctrine even once in all 1,330 couplets — which is precisely why everyone can claim him, and why no one can fully own him. That deliberate silence may itself be the greatest statement he ever made.",
+        "tm": "திருவள்ளுவரின் சாதி, மதம் அல்லது சரியான காலம் யாருக்கும் தெரியாது. சமணர்கள் அவரை சமணராகக் கொள்கின்றனர். சைவர்கள் அவரை சைவராக. மதச்சார்பற்ற சிந்தனையாளர்கள் தமதாக. 1,330 குறட்பாக்களில் ஒரு முறைகூட கடவுள், சாதி அல்லது மதக் கோட்பாட்டை குறிப்பிடவில்லை — எனவே யாரும் அவரை கொண்டாட முடிகிறது, ஆனால் யாரும் முழுமையாக உரிமை கொண்டாட முடியவில்லை. அந்த வேண்டுமென்றே மவுனமே அவர் என்றும் கூறிய மிகப்பெரிய கூற்றாக இருக்கலாம்."
+      },
+      "read_more_url": "https://en.wikipedia.org/wiki/Thiruvalluvar"
+    },
+    {
+      "topic_id": "chola-dynasty",
+      "image": "w02-chola-dynasty-bonus.jpg",
+      "title": {
+        "en": "The Spy Network That Built an Empire",
+        "tm": "சாம்ராஜ்யம் கட்டிய உளவு வலை"
+      },
+      "body": {
+        "en": "The Cholas maintained an elaborate intelligence network called the Orrar — secret agents embedded inside enemy kingdoms, markets, and temples. Chola administrative texts categorise spy types: wandering monks, traders, courtesans, astrologers, and simply 'disguised persons'. Rules governed how they recruited agents, verified intelligence, and handled double agents. This was organised state espionage 800 years before Machiavelli wrote The Prince.",
+        "tm": "சோழர்கள் 'ஒற்றர்' எனப்படும் விரிவான உளவு வலையை பராமரித்தனர் — எதிரி அரசுகள், சந்தைகள் மற்றும் கோயில்களில் ஊடுருவிய இரகசிய முகவர்கள். சோழ நிர்வாக நூல்கள் உளவாளிகளை வகைப்படுத்துகின்றன: சுற்றும் துறவிகள், வணிகர்கள், நர்த்தகிகள், ஜோதிடர்கள் மற்றும் 'மாறுவேடம் தரித்தவர்கள்'. மச்சியவேல்லி 'தி பிரின்ஸ்' எழுதுவதற்கு 800 ஆண்டுகளுக்கு முன்பே ஒழுங்கமைக்கப்பட்ட அரசு உளவு நடைமுறையில் இருந்தது."
+      },
+      "read_more_url": "https://en.wikipedia.org/wiki/Chola_dynasty"
+    },
+    {
+      "topic_id": "sangam-age",
+      "image": "w02-sangam-age-bonus.jpg",
+      "title": {
+        "en": "The Love Poems Were Actually Geography",
+        "tm": "காதல் கவிதைகள் உண்மையில் புவியியல்"
+      },
+      "body": {
+        "en": "Sangam love poetry used a precise system called Tinai — five landscape zones (mountain, forest, pastoral, coastal, wasteland) each mapped to a specific emotion, flower, bird, time of day, and season. A poem mentioning jasmine at dawn near the sea was a coded message about patient waiting in separation. You had to decode the geography to feel the emotion. Scholars spent centuries learning to read landscapes as feelings.",
+        "tm": "சங்க காதல் கவிதை திணை எனப்படும் துல்லியமான அமைப்பைப் பயன்படுத்தியது — ஐந்து நிலப்பரப்பு மண்டலங்கள் (மலை, காடு, வயல், கடல், வறண்ட நிலம்) ஒவ்வொன்றும் குறிப்பிட்ட உணர்வு, மலர், பறவை, நாளின் நேரம் மற்றும் பருவகாலத்துடன் இணைக்கப்பட்டன. கடலோர அதிகாலையில் முல்லை மலரை குறிப்பிடும் கவிதை பிரிவில் பொறுமையாக காத்திருப்பதற்கான குறியீட்டு செய்தி. நிலப்பரப்பை புரிந்துகொள்ளாமல் உணர்வை உணர முடியாது."
+      },
+      "read_more_url": "https://en.wikipedia.org/wiki/Sangam_literature"
+    }
+  ]
+}
