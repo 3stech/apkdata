@@ -1,0 +1,911 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>hUSE</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800;900&family=Noto+Sans+Tamil:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#07091A;--surface:#0D1024;--card:#131B30;--card-hi:#1A2340;
+  --amber:#F5A623;--amber-dim:rgba(245,166,35,0.12);
+  --coral:#FF6060;--green:#22D47A;--purple:#9B7BFF;
+  --txt:#EEF2FF;--txt2:#B0BDD4;--txt3:#8896B3;
+  --border:rgba(255,255,255,0.06);
+  --r-card:14px;--r-btn:12px;--r-pill:20px;
+}
+html,body{height:100%;background:var(--bg);color:var(--txt);font-family:'Outfit',sans-serif;font-size:16px;-webkit-tap-highlight-color:transparent;overscroll-behavior:none}
+#app-wrap{max-width:480px;margin:0 auto;min-height:100%;display:flex;flex-direction:column}
+
+/* HEADER */
+#app-header{position:sticky;top:0;z-index:100;background:var(--surface);border-bottom:1px solid var(--border);padding:12px 16px;display:flex;align-items:center;justify-content:space-between;gap:12px}
+#logo{font-size:1.5rem;font-weight:900;letter-spacing:-1px;flex-shrink:0}
+#logo span{color:var(--amber)}
+#header-right{display:flex;align-items:center;gap:10px}
+#xp-pill{background:var(--amber-dim);border:1px solid rgba(245,166,35,0.3);color:var(--amber);font-size:.78rem;font-weight:700;padding:4px 10px;border-radius:var(--r-pill);white-space:nowrap}
+#lang-toggle{display:flex;background:var(--card);border:1px solid var(--border);border-radius:var(--r-pill);overflow:hidden}
+#lang-toggle button{background:none;border:none;color:var(--txt3);font-family:'Outfit',sans-serif;font-size:.75rem;font-weight:600;padding:5px 10px;cursor:pointer;transition:background .2s,color .2s}
+#lang-toggle button.active{background:var(--amber);color:#000;border-radius:var(--r-pill)}
+
+/* SCREEN */
+#screen-area{flex:1;overflow-y:auto;padding-bottom:calc(60px + env(safe-area-inset-bottom) + 8px)}
+
+/* BOTTOM NAV */
+#bottom-nav{position:fixed;bottom:0;left:50%;transform:translateX(-50%);width:100%;max-width:480px;height:calc(60px + env(safe-area-inset-bottom));background:var(--surface);border-top:1px solid var(--border);display:flex;z-index:100;padding-bottom:env(safe-area-inset-bottom)}
+.nav-tab{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;background:none;border:none;color:var(--txt3);font-family:'Outfit',sans-serif;font-size:.7rem;font-weight:600;cursor:pointer;gap:3px;padding:8px 0;transition:color .2s}
+.nav-tab .nav-icon{font-size:1.15rem}
+.nav-tab.active{color:var(--amber)}
+
+/* LOADING */
+#loading{position:fixed;inset:0;background:var(--bg);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;z-index:999}
+.load-logo{font-size:2.5rem;font-weight:900;letter-spacing:-1px}
+.load-logo span{color:var(--amber)}
+.pulse-ring{width:40px;height:40px;border:3px solid var(--amber-dim);border-top-color:var(--amber);border-radius:50%;animation:spin .8s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.load-error{background:var(--card);border-radius:var(--r-card);padding:24px;text-align:center;max-width:300px;margin:0 16px}
+.load-error p{color:var(--txt2);margin-bottom:16px;font-size:.95rem;line-height:1.5}
+
+/* TOAST */
+#toast{position:fixed;bottom:calc(60px + env(safe-area-inset-bottom) + 16px);left:50%;transform:translateX(-50%) translateY(20px);background:var(--card-hi);border:1px solid var(--border);color:var(--txt);font-size:.85rem;font-weight:600;padding:10px 18px;border-radius:var(--r-pill);white-space:nowrap;opacity:0;transition:opacity .25s,transform .25s;z-index:200;pointer-events:none}
+#toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+
+/* COMMON */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;padding:12px 20px;border-radius:var(--r-btn);font-family:'Outfit',sans-serif;font-size:.9rem;font-weight:700;cursor:pointer;border:none;transition:opacity .2s,transform .1s}
+.btn:active{transform:scale(.97)}
+.btn:disabled{opacity:.38;cursor:not-allowed;transform:none}
+.btn-primary{background:var(--amber);color:#000}
+.btn-secondary{background:var(--card-hi);color:var(--txt2);border:1px solid var(--border)}
+.btn-ghost-green{background:none;color:var(--green);border:1.5px solid var(--green)}
+.btn-full{width:100%}
+.screen-header{display:flex;align-items:center;gap:12px;padding:16px 16px 8px}
+.back-btn{background:none;border:none;color:var(--txt2);font-size:1.3rem;cursor:pointer;padding:4px 8px 4px 0;flex-shrink:0}
+.screen-title{font-size:1.1rem;font-weight:800}
+.screen-subtitle{font-size:.8rem;color:var(--txt3)}
+.lang-tm{font-family:'Noto Sans Tamil',sans-serif}
+
+/* HOME */
+.home-wrap{padding:16px;display:flex;flex-direction:column;gap:12px}
+.week-banner{background:var(--card);border:1px solid var(--border);border-radius:var(--r-card);padding:16px}
+.week-meta-tag{font-size:.72rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--amber);margin-bottom:6px}
+.week-title{font-size:1.35rem;font-weight:800;line-height:1.25;margin-bottom:10px}
+.week-stats{font-size:.8rem;color:var(--txt3);margin-bottom:12px}
+.day-dots{display:flex;gap:6px;align-items:center}
+.day-dot{width:10px;height:10px;border-radius:50%}
+.day-dot.filled{background:var(--amber)}
+.day-dot.current{background:var(--amber);animation:pulse-dot 1.2s ease-in-out infinite}
+.day-dot.empty{background:var(--card-hi);border:1px solid var(--border)}
+@keyframes pulse-dot{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(1.3)}}
+.streak-level-row{display:flex;align-items:center;justify-content:space-between}
+.streak-text{font-size:.85rem;font-weight:600;color:var(--txt2)}
+.level-pill{background:rgba(155,123,255,.15);border:1px solid rgba(155,123,255,.3);color:var(--purple);font-size:.75rem;font-weight:700;padding:4px 12px;border-radius:var(--r-pill)}
+.topic-card{background:var(--card);border:1px solid var(--border);border-radius:var(--r-card);padding:14px 14px 14px 18px;display:flex;align-items:center;gap:12px;cursor:pointer;position:relative;overflow:hidden;transition:background .15s}
+.topic-card:active{background:var(--card-hi)}
+.topic-accent-bar{position:absolute;left:0;top:0;bottom:0;width:4px}
+.topic-card-body{flex:1}
+.topic-num{font-size:.68rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--txt3);margin-bottom:2px}
+.topic-title{font-size:.97rem;font-weight:700;line-height:1.3}
+.topic-today-badge{display:inline-block;background:var(--amber-dim);color:var(--amber);font-size:.65rem;font-weight:700;padding:2px 7px;border-radius:var(--r-pill);margin-top:4px}
+.topic-pips{display:flex;gap:4px;margin-top:6px}
+.topic-pip{width:7px;height:7px;border-radius:50%}
+.topic-pip.done{background:var(--amber)}
+.topic-pip.empty{background:var(--card-hi);border:1px solid var(--border)}
+.topic-arrow{color:var(--txt3);font-size:1.1rem;flex-shrink:0}
+.action-card{border-radius:var(--r-card);padding:14px 16px;cursor:pointer;border:1px solid var(--border);transition:opacity .15s}
+.action-card:active{opacity:.8}
+.action-card-tag{font-size:.7rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;margin-bottom:4px}
+.action-card-title{font-size:1rem;font-weight:800;margin-bottom:2px}
+.action-card-sub{font-size:.8rem}
+.action-card.recap-card{background:rgba(34,212,122,.08);border-color:rgba(34,212,122,.2)}
+.action-card.recap-card .action-card-tag{color:var(--green)}
+.action-card.recap-card .action-card-sub{color:rgba(34,212,122,.7)}
+.action-card.quiz-card{background:rgba(155,123,255,.08);border-color:rgba(155,123,255,.2)}
+.action-card.quiz-card .action-card-tag{color:var(--purple)}
+.action-card.quiz-card .action-card-sub{color:rgba(155,123,255,.7)}
+
+/* READER */
+.reader-wrap{padding:0 0 16px}
+.reader-header{display:flex;align-items:center;gap:10px;padding:14px 16px 10px}
+.reader-topic-title{font-size:1rem;font-weight:800;line-height:1.2;flex:1}
+.day-nav{display:flex;gap:8px;padding:0 16px 12px;overflow-x:auto;scrollbar-width:none}
+.day-nav::-webkit-scrollbar{display:none}
+.day-pill{flex-shrink:0;padding:6px 14px;border-radius:var(--r-pill);font-size:.78rem;font-weight:700;border:1.5px solid var(--border);background:none;color:var(--txt3);font-family:'Outfit',sans-serif;cursor:pointer;transition:background .15s,color .15s,border-color .15s;white-space:nowrap}
+.day-pill.active{background:var(--amber);color:#000;border-color:var(--amber)}
+.day-pill.done{color:var(--amber);border-color:rgba(245,166,35,.4)}
+.back-day1-bar{margin:0 16px 10px;background:var(--amber-dim);border:1px solid rgba(245,166,35,.25);border-radius:var(--r-btn);padding:8px 14px;font-size:.82rem;font-weight:600;color:var(--amber);cursor:pointer;display:flex;align-items:center;gap:6px}
+.content-card-wrap{margin:0 16px;overflow:hidden;border-radius:var(--r-card)}
+.content-card{background:var(--card);border:1px solid var(--border);border-radius:var(--r-card);overflow:hidden}
+.content-card.anim-out-left  {animation:outLeft  .18s ease forwards}
+.content-card.anim-out-right {animation:outRight .18s ease forwards}
+.content-card.anim-out-up    {animation:outUp    .18s ease forwards}
+.content-card.anim-out-down  {animation:outDown  .18s ease forwards}
+.content-card.anim-in-left   {animation:inLeft   .18s ease forwards}
+.content-card.anim-in-right  {animation:inRight  .18s ease forwards}
+.content-card.anim-in-up     {animation:inUp     .18s ease forwards}
+.content-card.anim-in-down   {animation:inDown   .18s ease forwards}
+@keyframes outLeft  {to  {transform:translateX(-100%);opacity:0}}
+@keyframes outRight {to  {transform:translateX(100%);opacity:0}}
+@keyframes outUp    {to  {transform:translateY(-60%);opacity:0}}
+@keyframes outDown  {to  {transform:translateY(60%);opacity:0}}
+@keyframes inLeft   {from{transform:translateX(100%);opacity:0}}
+@keyframes inRight  {from{transform:translateX(-100%);opacity:0}}
+@keyframes inUp     {from{transform:translateY(60%);opacity:0}}
+@keyframes inDown   {from{transform:translateY(-60%);opacity:0}}
+.content-image-wrap{position:relative;aspect-ratio:3/2;overflow:hidden;user-select:none;-webkit-user-select:none;touch-action:pan-y}
+.content-image{width:100%;height:100%;object-fit:cover;display:block;pointer-events:none}
+.img-fallback{width:100%;height:100%;display:none;align-items:center;justify-content:center;font-size:3.5rem}
+.swipe-hint{position:absolute;inset:0;pointer-events:none;display:flex;align-items:center;justify-content:center;z-index:5}
+.swipe-compass{background:rgba(7,9,26,.8);border-radius:50%;width:96px;height:96px;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:2px;animation:fadeInOut 2.5s ease forwards}
+.compass-row{display:flex;align-items:center;gap:10px;font-size:.65rem;color:rgba(255,255,255,.75);line-height:1}
+.compass-center{font-size:.9rem}
+@keyframes fadeInOut{0%{opacity:0}15%{opacity:1}75%{opacity:1}100%{opacity:0}}
+.content-text{padding:14px 16px 16px}
+.content-day-label{font-size:.7rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--amber);margin-bottom:6px}
+.content-headline{font-size:1.15rem;font-weight:800;line-height:1.25;margin-bottom:10px}
+.content-body{font-size:.92rem;color:var(--txt2);line-height:1.7}
+.content-body.lang-tm{line-height:1.85;font-size:.95rem}
+.reader-nav-btns{display:flex;gap:10px;margin:12px 16px 0}
+.reader-nav-btns .btn{flex:1}
+
+/* SUMMARY */
+.summary-wrap{padding:0 16px 16px}
+.reveal-toggle{display:inline-flex;align-items:center;gap:6px;padding:6px 12px;border-radius:var(--r-pill);font-size:.75rem;font-weight:700;cursor:pointer;border:none;font-family:'Outfit',sans-serif;transition:background .2s,color .2s;white-space:nowrap}
+.reveal-toggle.on{background:rgba(34,212,122,.15);color:var(--green)}
+.reveal-toggle.off{background:var(--card-hi);color:var(--txt3);border:1px solid var(--border)}
+.accordion{border:1px solid var(--border);border-radius:var(--r-card);overflow:hidden;background:var(--card);margin-bottom:10px}
+.accordion-head{display:flex;align-items:center;justify-content:space-between;padding:14px 16px;cursor:pointer;user-select:none}
+.accordion-head-title{font-size:1rem;font-weight:800}
+.accordion-chevron{font-size:.9rem;color:var(--txt3);transition:transform .25s}
+.accordion.open .accordion-chevron{transform:rotate(180deg)}
+.accordion-body{display:none;border-top:1px solid var(--border)}
+.accordion.open .accordion-body{display:block}
+.fact-row{display:flex;gap:12px;padding:12px 16px;border-bottom:1px solid var(--border)}
+.fact-row:last-child{border-bottom:none}
+.fact-day-bubble{width:26px;height:26px;border-radius:50%;background:var(--amber-dim);color:var(--amber);font-size:.75rem;font-weight:800;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px}
+.fact-label{font-size:.82rem;font-weight:700;margin-bottom:3px}
+.fact-body{font-size:.82rem;color:var(--txt2);line-height:1.6}
+.fact-body.lang-tm{font-size:.85rem;line-height:1.8}
+.share-btn-wrap{padding:10px 0 4px}
+
+/* QUIZ */
+.quiz-wrap{padding:0 16px 16px}
+.quiz-progress-bar-wrap{height:5px;background:var(--card-hi);border-radius:3px;margin:0 16px 16px;overflow:hidden}
+.quiz-progress-bar{height:100%;background:var(--purple);border-radius:3px;transition:width .4s ease}
+.quiz-question-card{background:var(--card);border:1px solid var(--border);border-radius:var(--r-card);padding:18px 16px;margin-bottom:12px}
+.quiz-q-num{font-size:.7rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--purple);margin-bottom:8px}
+.quiz-q-text{font-size:1.02rem;font-weight:700;line-height:1.4}
+.quiz-options{display:flex;flex-direction:column;gap:8px;margin-bottom:12px}
+.quiz-option{background:var(--card-hi);border:1.5px solid var(--border);border-radius:var(--r-btn);padding:12px 14px;font-family:'Outfit',sans-serif;font-size:.9rem;font-weight:600;color:var(--txt);text-align:left;cursor:pointer;transition:border-color .15s,background .15s;display:flex;gap:10px;align-items:flex-start;width:100%}
+.quiz-option:not(:disabled):hover{border-color:var(--purple)}
+.opt-letter{color:var(--txt3);font-size:.78rem;font-weight:700;min-width:18px;margin-top:1px;flex-shrink:0}
+.quiz-option.correct{background:rgba(34,212,122,.15);border-color:var(--green);color:var(--green)}
+.quiz-option.wrong{background:rgba(255,96,96,.15);border-color:var(--coral);color:var(--coral)}
+.quiz-option:disabled{cursor:default}
+.quiz-feedback{border-radius:var(--r-btn);padding:12px 14px;font-size:.85rem;line-height:1.5;margin-bottom:12px}
+.quiz-feedback.correct{background:rgba(34,212,122,.12);color:var(--green)}
+.quiz-feedback.wrong{background:rgba(255,96,96,.12);color:var(--coral)}
+
+/* RESULTS */
+.results-wrap{padding:16px}
+.score-ring-wrap{display:flex;flex-direction:column;align-items:center;margin:8px 0 20px}
+.score-ring-track{fill:none;stroke:var(--card-hi);stroke-width:10}
+.score-ring-fill{fill:none;stroke:var(--purple);stroke-width:10;stroke-linecap:round;transform:rotate(-90deg);transform-origin:50% 50%;transition:stroke-dashoffset 1s ease}
+.score-num{font-family:'Outfit',sans-serif;font-size:2rem;font-weight:900;fill:var(--txt);text-anchor:middle;dominant-baseline:middle}
+.score-of{font-family:'Outfit',sans-serif;font-size:.78rem;font-weight:600;fill:var(--txt3);text-anchor:middle;dominant-baseline:middle}
+.results-headline{font-size:1.5rem;font-weight:900;text-align:center;margin-bottom:6px}
+.results-subtext{font-size:.9rem;color:var(--txt2);text-align:center;margin-bottom:20px}
+.xp-row{background:var(--amber-dim);border:1px solid rgba(245,166,35,.2);border-radius:var(--r-btn);padding:12px 16px;display:flex;align-items:center;justify-content:space-between;margin-bottom:12px}
+.xp-row-label{font-size:.85rem;color:var(--txt2);font-weight:600}
+.xp-row-val{font-size:1rem;font-weight:800;color:var(--amber)}
+.bonus-box{border-radius:var(--r-card);padding:16px;margin-bottom:12px;border:1px solid var(--border)}
+.bonus-box.unlocked{background:rgba(155,123,255,.10);border-color:rgba(155,123,255,.3);cursor:pointer}
+.bonus-box.locked{background:var(--card);opacity:.55}
+.bonus-box-tag{font-size:.7rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--purple);margin-bottom:6px}
+.bonus-box-title{font-size:1rem;font-weight:800;margin-bottom:4px}
+.bonus-box-sub{font-size:.82rem;color:var(--txt2)}
+.results-actions{display:flex;flex-direction:column;gap:8px;margin-top:4px}
+
+/* BONUS */
+.bonus-screen-intro{padding:4px 16px 12px}
+.bonus-screen-tag{font-size:.72rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--purple);margin-bottom:6px}
+.bonus-screen-title{font-size:1.2rem;font-weight:900;margin-bottom:3px}
+.bonus-screen-subtitle{font-size:.85rem;color:var(--txt2)}
+.bonus-wrap{padding:0 16px 16px}
+.bonus-content-card{background:var(--card);border:1px solid var(--border);border-radius:var(--r-card);overflow:hidden;margin-bottom:12px}
+.bonus-img{width:100%;aspect-ratio:3/2;object-fit:cover;display:block}
+.bonus-img-fallback{aspect-ratio:3/2;display:none;align-items:center;justify-content:center;font-size:2.5rem}
+.bonus-card-body{padding:14px 16px}
+.bonus-card-tag{font-size:.68rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--purple);margin-bottom:6px}
+.bonus-card-title{font-size:1.05rem;font-weight:800;margin-bottom:8px;line-height:1.3}
+.bonus-card-body-text{font-size:.9rem;color:var(--txt2);line-height:1.7;margin-bottom:12px}
+.bonus-card-body-text.lang-tm{font-size:.92rem;line-height:1.85}
+.bonus-read-more{color:var(--purple);font-size:.85rem;font-weight:700;text-decoration:none;display:inline-flex;align-items:center;gap:4px}
+.bonus-read-more:hover{text-decoration:underline}
+
+/* PROGRESS */
+.progress-wrap{padding:16px}
+.level-card{background:rgba(155,123,255,.10);border:1px solid rgba(155,123,255,.25);border-radius:var(--r-card);padding:24px 16px;text-align:center;margin-bottom:20px;position:relative;overflow:hidden}
+.level-card::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 50% 40%,rgba(155,123,255,.18) 0%,transparent 70%);pointer-events:none}
+.level-label{font-size:.72rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--purple);margin-bottom:6px}
+.level-name-en{font-size:2.2rem;font-weight:900;line-height:1;margin-bottom:4px}
+.level-name-tm{font-family:'Noto Sans Tamil',sans-serif;font-size:1rem;color:var(--txt2);margin-bottom:16px}
+.xp-bar-wrap{margin:0 auto 8px;max-width:280px}
+.xp-bar-bg{height:8px;background:rgba(155,123,255,.15);border-radius:4px;overflow:hidden;margin-bottom:6px}
+.xp-bar-fill{height:100%;background:linear-gradient(90deg,var(--purple),#C4B5FF);border-radius:4px;transition:width .8s ease}
+.xp-bar-labels{display:flex;justify-content:space-between;font-size:.72rem;color:var(--txt3)}
+.badges-section-title{font-size:.8rem;font-weight:700;color:var(--txt3);text-transform:uppercase;letter-spacing:.05em;margin-bottom:12px}
+.badge-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.badge-tile{background:var(--card);border-radius:var(--r-card);border:1px solid var(--border);padding:14px 8px;text-align:center;display:flex;flex-direction:column;align-items:center;gap:6px}
+.badge-tile.earned{border-color:rgba(245,166,35,.4)}
+.badge-tile.unearned{opacity:.38}
+.badge-emoji{font-size:1.8rem}
+.badge-name{font-size:.68rem;font-weight:700;color:var(--txt3);text-align:center;line-height:1.3}
+.badge-tile.earned .badge-name{color:var(--amber)}
+</style>
+</head>
+<body>
+
+<div id="loading">
+  <div class="load-logo">h<span>USE</span></div>
+  <div class="pulse-ring"></div>
+</div>
+
+<div id="app-wrap" style="display:none">
+  <header id="app-header">
+    <div id="logo">h<span>USE</span></div>
+    <div id="header-right">
+      <div id="xp-pill">⭐ 340 XP</div>
+      <div id="lang-toggle">
+        <button id="btn-en" class="active" onclick="setLang('en')">EN</button>
+        <button id="btn-tm" onclick="setLang('tm')">தமிழ்</button>
+      </div>
+    </div>
+  </header>
+  <main id="screen-area"></main>
+  <nav id="bottom-nav">
+    <button class="nav-tab active" data-screen="home" onclick="navigate('home')">
+      <span class="nav-icon">🏠</span><span>Home</span>
+    </button>
+    <button class="nav-tab" data-screen="summary" onclick="navigate('summary')">
+      <span class="nav-icon">📋</span><span>Recap</span>
+    </button>
+    <button class="nav-tab" data-screen="quiz" onclick="navigate('quiz')">
+      <span class="nav-icon">🧠</span><span>Quiz</span>
+    </button>
+    <button class="nav-tab" data-screen="progress" onclick="navigate('progress')">
+      <span class="nav-icon">🏆</span><span>Progress</span>
+    </button>
+  </nav>
+</div>
+
+<div id="toast"></div>
+
+<script>
+const JSON_URL = 'https://3stech.github.io/apkdata/huse-app/v2-poc/content/week-02.json';
+const TOPIC_FALLBACK = ['📜','🏰','⚓'];
+
+const APP = {
+  lang: 'en',
+  content: null,
+  xp: 340, level: 'Kalki', levelTm: 'கல்கி', levelNum: 2, xpToNext: 500, nextLevel: 'Bharathi', streak: 7,
+  badges: [
+    {id:'first_read',  label:'First Read',     emoji:'📖', earned:true},
+    {id:'streak_7',    label:'7-Day Streak',   emoji:'🔥', earned:true},
+    {id:'quiz_taker',  label:'Quiz Taker',     emoji:'🧠', earned:true},
+    {id:'perfect',     label:'Perfect Score',  emoji:'⭐', earned:false},
+    {id:'month_master',label:'Month Master',   emoji:'🏆', earned:false},
+    {id:'district_top',label:'District Top 10',emoji:'🌟', earned:false},
+  ],
+  topicIndex: 0, dayIndex: 0, tapReveal: true,
+  quizQuestions: [], quizIndex: 0, quizScore: 0, quizComplete: false, bonusUnlocked: false,
+  currentScreen: 'home', swipeHintShown: false,
+};
+
+// ── UTILS ──────────────────────────────────────────────────────────────────
+
+function t(obj) { return obj ? (obj[APP.lang] || obj.en || '') : ''; }
+
+function showToast(msg) {
+  const el = document.getElementById('toast');
+  el.textContent = msg;
+  el.classList.add('show');
+  clearTimeout(el._timer);
+  el._timer = setTimeout(() => el.classList.remove('show'), 2500);
+}
+
+function shuffle(arr) {
+  const a = [...arr];
+  for (let i = a.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [a[i], a[j]] = [a[j], a[i]];
+  }
+  return a;
+}
+
+// ── NAVIGATION ─────────────────────────────────────────────────────────────
+
+function navigate(screen, opts = {}) {
+  APP.currentScreen = screen;
+  document.querySelectorAll('.nav-tab').forEach(tab => {
+    tab.classList.toggle('active', tab.dataset.screen === screen);
+  });
+  const area = document.getElementById('screen-area');
+  switch (screen) {
+    case 'home':     renderHome(area); break;
+    case 'reader':   renderReader(area); break;
+    case 'summary':  renderSummary(area); break;
+    case 'quiz':     initQuiz(); renderQuiz(area); break;
+    case 'results':  renderResults(area); break;
+    case 'bonus':    renderBonus(area); break;
+    case 'progress': renderProgress(area); break;
+  }
+  area.scrollTop = 0;
+}
+
+function rerender() {
+  const area = document.getElementById('screen-area');
+  const s = APP.currentScreen;
+  switch (s) {
+    case 'home':     renderHome(area); break;
+    case 'reader':   renderReader(area); break;
+    case 'summary':  renderSummary(area); break;
+    case 'quiz':     renderQuiz(area); break;
+    case 'results':  renderResults(area); break;
+    case 'bonus':    renderBonus(area); break;
+    case 'progress': renderProgress(area); break;
+  }
+}
+
+// ── HOME ───────────────────────────────────────────────────────────────────
+
+function renderHome(area) {
+  const c = APP.content, m = c.meta;
+  const doneCounts = [2, 2, 1];
+  const dotStates = ['filled','filled','current','empty','empty'];
+
+  const dots = dotStates.map(s => `<span class="day-dot ${s}"></span>`).join('');
+
+  const topics = c.topics.map((topic, i) => {
+    const done = doneCounts[i] || 0;
+    const pips = [1,2,3,4,5].map(n =>
+      `<span class="topic-pip ${n <= done ? 'done' : 'empty'}"></span>`
+    ).join('');
+    const langCls = APP.lang === 'tm' ? ' lang-tm' : '';
+    return `
+      <div class="topic-card" onclick="openReader(${i})">
+        <div class="topic-accent-bar" style="background:${topic.color}"></div>
+        <div class="topic-card-body">
+          <div class="topic-num">Topic ${String(i+1).padStart(2,'0')}</div>
+          <div class="topic-title${langCls}">${t(topic.title)}</div>
+          ${i === 0 ? '<div class="topic-today-badge">Today</div>' : ''}
+          <div class="topic-pips">${pips}</div>
+        </div>
+        <div class="topic-arrow">›</div>
+      </div>`;
+  }).join('');
+
+  const themeLangCls = APP.lang === 'tm' ? ' lang-tm' : '';
+  area.innerHTML = `
+    <div class="home-wrap">
+      <div class="week-banner">
+        <div class="week-meta-tag">Week ${m.week} · ${m.month} · ${m.curriculum}</div>
+        <div class="week-title${themeLangCls}">${t({en:m.theme,tm:m.theme_tm})}</div>
+        <div class="week-stats">${c.topics.length} topics &nbsp;·&nbsp; Day 3 &nbsp;·&nbsp; Quiz on Sunday</div>
+        <div class="day-dots">${dots}</div>
+      </div>
+      <div class="streak-level-row">
+        <span class="streak-text">🔥 ${APP.streak} day streak going!</span>
+        <span class="level-pill">${APP.level} · Lvl ${APP.levelNum}</span>
+      </div>
+      ${topics}
+      <div class="action-card recap-card" onclick="navigate('summary')">
+        <div class="action-card-tag">Saturday · Recap</div>
+        <div class="action-card-title">Weekly Summary</div>
+        <div class="action-card-sub">All 5 facts · tap-to-reveal · share</div>
+      </div>
+      <div class="action-card quiz-card" onclick="navigate('quiz')">
+        <div class="action-card-tag">Sunday · Quiz</div>
+        <div class="action-card-title">Weekly Quiz</div>
+        <div class="action-card-sub">${c.quiz.length} questions · earn XP · unlock bonus</div>
+      </div>
+    </div>`;
+}
+
+function openReader(topicIndex) {
+  APP.topicIndex = topicIndex;
+  APP.dayIndex = 0;
+  APP.currentScreen = 'reader';
+  document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
+  const area = document.getElementById('screen-area');
+  renderReader(area);
+  area.scrollTop = 0;
+}
+
+// ── READER ─────────────────────────────────────────────────────────────────
+
+function renderReader(area) {
+  const c = APP.content;
+  const topic = c.topics[APP.topicIndex];
+  const day = topic.days[APP.dayIndex];
+  const imgUrl = c.meta.image_base_url + day.image;
+  const fallback = TOPIC_FALLBACK[APP.topicIndex] || '📖';
+
+  const pills = topic.days.map((d, i) => {
+    let cls = 'day-pill';
+    if (i === APP.dayIndex) cls += ' active';
+    else if (i < APP.dayIndex) cls += ' done';
+    return `<button class="${cls}" onclick="goToDay(${i})">${i === 0 ? 'Day 1 — Start' : 'Day ' + (i+1)}</button>`;
+  }).join('');
+
+  const backBar = APP.dayIndex > 0
+    ? `<div class="back-day1-bar" onclick="goToDay(0)">↩ Back to Day 1 — start from the beginning</div>` : '';
+
+  const topicLangCls = APP.lang === 'tm' ? ' lang-tm' : '';
+  const bodyLangCls  = APP.lang === 'tm' ? ' lang-tm' : '';
+  const prevDis = APP.dayIndex === 0 ? 'disabled' : '';
+  const nextLabel = APP.dayIndex === 4 ? 'Done ✓' : 'Next →';
+  const nextAction = APP.dayIndex === 4 ? "navigate('home')" : 'changeDay(1)';
+
+  area.innerHTML = `
+    <div class="reader-wrap">
+      <div class="reader-header">
+        <button class="back-btn" onclick="navigate('home')">←</button>
+        <div class="reader-topic-title${topicLangCls}">${t(topic.title)}</div>
+      </div>
+      <div class="day-nav">${pills}</div>
+      ${backBar}
+      <div class="content-card-wrap">
+        <div class="content-card" id="content-card">
+          <div class="content-image-wrap" id="swipe-zone">
+            <img class="content-image" id="content-img" src="${imgUrl}" alt="${t(day.label)}"
+              onerror="this.style.display='none';document.getElementById('img-fb').style.display='flex'">
+            <div class="img-fallback" id="img-fb" style="background:${topic.color}33">${fallback}</div>
+          </div>
+          <div class="content-text">
+            <div class="content-day-label">Day ${APP.dayIndex + 1} of 5</div>
+            <div class="content-headline${topicLangCls}">${t(day.label)}</div>
+            <div class="content-body${bodyLangCls}">${t(day.fact)}</div>
+          </div>
+        </div>
+      </div>
+      <div class="reader-nav-btns">
+        <button class="btn btn-secondary" ${prevDis} onclick="changeDay(-1)">← Prev</button>
+        <button class="btn btn-primary" onclick="${nextAction}">${nextLabel}</button>
+      </div>
+    </div>`;
+
+  attachSwipe();
+}
+
+let _animating = false;
+
+function animateCard(outCls, inCls, cb) {
+  if (_animating) { cb(); return; }
+  _animating = true;
+  const card = document.getElementById('content-card');
+  if (!card) { _animating = false; cb(); return; }
+  card.classList.add(outCls);
+  setTimeout(() => {
+    _animating = false;
+    cb();
+    requestAnimationFrame(() => {
+      const nc = document.getElementById('content-card');
+      if (!nc) return;
+      nc.classList.add(inCls);
+      setTimeout(() => nc.classList.remove(inCls), 200);
+    });
+  }, 180);
+}
+
+function goToDay(i) {
+  if (i === APP.dayIndex) return;
+  const out = i > APP.dayIndex ? 'anim-out-left'  : 'anim-out-right';
+  const inn = i > APP.dayIndex ? 'anim-in-left'   : 'anim-in-right';
+  APP.dayIndex = i;
+  animateCard(out, inn, () => renderReader(document.getElementById('screen-area')));
+}
+
+function changeDay(delta) {
+  const n = APP.dayIndex + delta;
+  if (n < 0 || n > 4) return;
+  goToDay(n);
+}
+
+function changeTopic(delta) {
+  const n = APP.topicIndex + delta;
+  if (n < 0 || n >= APP.content.topics.length) return;
+  const out = delta > 0 ? 'anim-out-down' : 'anim-out-up';
+  const inn = delta > 0 ? 'anim-in-up'    : 'anim-in-down';
+  APP.topicIndex = n;
+  animateCard(out, inn, () => renderReader(document.getElementById('screen-area')));
+}
+
+function attachSwipe() {
+  const zone = document.getElementById('swipe-zone');
+  if (!zone) return;
+  let sx, sy, scrollLocked = false;
+
+  zone.addEventListener('touchstart', e => {
+    sx = e.touches[0].clientX;
+    sy = e.touches[0].clientY;
+    scrollLocked = false;
+  }, {passive: true});
+
+  zone.addEventListener('touchmove', e => {
+    const dx = Math.abs(e.touches[0].clientX - sx);
+    const dy = Math.abs(e.touches[0].clientY - sy);
+    if (!scrollLocked && dx > dy && dx > 10) { scrollLocked = true; }
+    if (scrollLocked) e.preventDefault();
+  }, {passive: false});
+
+  zone.addEventListener('touchend', e => {
+    const dx = e.changedTouches[0].clientX - sx;
+    const dy = e.changedTouches[0].clientY - sy;
+    const adx = Math.abs(dx), ady = Math.abs(dy);
+
+    if (!APP.swipeHintShown) { showSwipeHint(); APP.swipeHintShown = true; }
+
+    if (adx > ady && adx > 40) {
+      dx < 0 ? changeDay(1) : changeDay(-1);
+    } else if (ady > adx && ady > 40) {
+      dy < 0 ? changeTopic(1) : changeTopic(-1);
+    }
+  }, {passive: true});
+}
+
+function showSwipeHint() {
+  const zone = document.getElementById('swipe-zone');
+  if (!zone) return;
+  const hint = document.createElement('div');
+  hint.className = 'swipe-hint';
+  hint.innerHTML = `<div class="swipe-compass">
+    <div class="compass-row"><span>↑ topic</span></div>
+    <div class="compass-row"><span>← day</span><span class="compass-center"> </span><span>day →</span></div>
+    <div class="compass-row"><span>↓ topic</span></div>
+  </div>`;
+  zone.appendChild(hint);
+  setTimeout(() => hint.remove(), 2600);
+}
+
+// Keyboard nav for desktop (attached once)
+document.addEventListener('keydown', e => {
+  if (APP.currentScreen !== 'reader') return;
+  if (e.key === 'ArrowLeft')  changeDay(-1);
+  if (e.key === 'ArrowRight') changeDay(1);
+  if (e.key === 'ArrowUp')    changeTopic(-1);
+  if (e.key === 'ArrowDown')  changeTopic(1);
+});
+
+// ── SUMMARY ────────────────────────────────────────────────────────────────
+
+function renderSummary(area) {
+  const c = APP.content, m = c.meta;
+
+  const accordions = c.topics.map((topic, i) => {
+    const open = !APP.tapReveal ? ' open' : '';
+    const tCls = APP.lang === 'tm' ? ' lang-tm' : '';
+    const facts = topic.days.map(day => `
+      <div class="fact-row">
+        <div class="fact-day-bubble">${day.day}</div>
+        <div>
+          <div class="fact-label${tCls}">${t(day.label)}</div>
+          <div class="fact-body${tCls}">${t(day.fact)}</div>
+        </div>
+      </div>`).join('');
+    return `
+      <div class="accordion${open}" id="acc-${i}">
+        <div class="accordion-head" onclick="toggleAcc(${i})">
+          <div class="accordion-head-title${tCls}" style="color:${topic.color}">${t(topic.title)}</div>
+          <div class="accordion-chevron">▾</div>
+        </div>
+        <div class="accordion-body">${facts}</div>
+      </div>`;
+  }).join('');
+
+  const toggleBtn = APP.tapReveal
+    ? `<button class="reveal-toggle on" onclick="toggleReveal()">👆 Tap to reveal — ON</button>`
+    : `<button class="reveal-toggle off" onclick="toggleReveal()">👁 Show all — OFF</button>`;
+
+  area.innerHTML = `
+    <div>
+      <div class="screen-header">
+        <button class="back-btn" onclick="navigate('home')">←</button>
+        <div style="flex:1">
+          <div class="screen-title">Weekly Recap</div>
+          <div class="screen-subtitle">Week ${m.week} · ${m.month} · ${m.curriculum}</div>
+        </div>
+        ${toggleBtn}
+      </div>
+      <div class="summary-wrap">
+        ${accordions}
+        <div class="share-btn-wrap">
+          <button class="btn btn-ghost-green btn-full"
+            onclick="showToast('Generating &quot;Did You Know?&quot; card…')">
+            📤 Share — Did You Know?
+          </button>
+        </div>
+      </div>
+    </div>`;
+}
+
+function toggleAcc(i) {
+  const el = document.getElementById('acc-' + i);
+  if (el) el.classList.toggle('open');
+}
+
+function toggleReveal() {
+  APP.tapReveal = !APP.tapReveal;
+  renderSummary(document.getElementById('screen-area'));
+}
+
+// ── QUIZ ───────────────────────────────────────────────────────────────────
+
+function initQuiz() {
+  APP.quizQuestions = APP.content.quiz.map(q => {
+    const idxs = shuffle([0,1,2,3]);
+    const shuffledOpts = idxs.map(i => ({text: q.options.en[i], tmText: q.options.tm[i], origIdx: i}));
+    const shuffledCorrect = idxs.indexOf(q.correct_index);
+    return {...q, shuffledOpts, shuffledCorrect, answered: false, userChoice: -1};
+  });
+  APP.quizIndex = 0;
+  APP.quizScore = 0;
+  APP.quizComplete = false;
+  APP.bonusUnlocked = false;
+}
+
+function renderQuiz(area) {
+  const total = APP.quizQuestions.length;
+  const qi = APP.quizIndex;
+  const q = APP.quizQuestions[qi];
+  const pct = (qi / total) * 100;
+  const qCls = APP.lang === 'tm' ? ' lang-tm' : '';
+  const qText = APP.lang === 'tm' ? (q.question.tm || q.question.en) : q.question.en;
+  const letters = ['A','B','C','D'];
+
+  const opts = q.shuffledOpts.map((opt, i) => {
+    const txt = APP.lang === 'tm' ? opt.tmText : opt.text;
+    const oCls = APP.lang === 'tm' ? ' lang-tm' : '';
+    return `<button class="quiz-option${oCls}" data-idx="${i}" onclick="selectAnswer(${i})">
+      <span class="opt-letter">${letters[i]}</span><span>${txt}</span>
+    </button>`;
+  }).join('');
+
+  area.innerHTML = `
+    <div>
+      <div class="screen-header">
+        <button class="back-btn" onclick="navigate('home')">←</button>
+        <div style="flex:1">
+          <div class="screen-title">Weekly Quiz</div>
+          <div class="screen-subtitle">Question ${qi+1} of ${total}</div>
+        </div>
+      </div>
+      <div class="quiz-progress-bar-wrap">
+        <div class="quiz-progress-bar" style="width:${pct}%"></div>
+      </div>
+      <div class="quiz-wrap">
+        <div class="quiz-question-card">
+          <div class="quiz-q-num">Question ${qi+1}</div>
+          <div class="quiz-q-text${qCls}">${qText}</div>
+        </div>
+        <div class="quiz-options" id="quiz-options">${opts}</div>
+        <div id="quiz-feedback" style="display:none" class="quiz-feedback"></div>
+        <button class="btn btn-primary btn-full" id="quiz-next" style="display:none" onclick="quizNext()">
+          ${qi === total-1 ? 'See Results →' : 'Next →'}
+        </button>
+      </div>
+    </div>`;
+}
+
+function selectAnswer(idx) {
+  const q = APP.quizQuestions[APP.quizIndex];
+  if (q.answered) return;
+  q.answered = true;
+  q.userChoice = idx;
+  const correct = idx === q.shuffledCorrect;
+  if (correct) APP.quizScore++;
+
+  document.querySelectorAll('.quiz-option').forEach((btn, i) => {
+    btn.disabled = true;
+    if (i === q.shuffledCorrect) btn.classList.add('correct');
+    if (i === idx && !correct)   btn.classList.add('wrong');
+  });
+
+  const fb = document.getElementById('quiz-feedback');
+  const expText = APP.lang === 'tm' ? (q.explanation.tm || q.explanation.en) : q.explanation.en;
+  fb.className = 'quiz-feedback ' + (correct ? 'correct' : 'wrong');
+  fb.textContent = (correct ? '✓ Correct! ' : '✗ ') + expText;
+  fb.style.display = 'block';
+  document.getElementById('quiz-next').style.display = 'block';
+}
+
+function quizNext() {
+  const total = APP.quizQuestions.length;
+  if (APP.quizIndex < total - 1) {
+    APP.quizIndex++;
+    renderQuiz(document.getElementById('screen-area'));
+  } else {
+    APP.quizComplete = true;
+    APP.bonusUnlocked = APP.quizScore >= Math.max(3, Math.ceil(total * 0.3));
+    navigate('results');
+  }
+}
+
+// ── RESULTS ────────────────────────────────────────────────────────────────
+
+function renderResults(area) {
+  const total = APP.quizQuestions.length;
+  const score = APP.quizScore;
+  const r = 58, circ = 2 * Math.PI * r;
+  const fill = (score / total) * circ;
+
+  let headline, subtext;
+  if (score === total)        { headline = 'Perfect! 🎉';  subtext = 'You nailed every question this week.'; }
+  else if (score/total >= .7) { headline = 'Well done!';   subtext = 'Solid effort — bonus content unlocked.'; }
+  else if (score >= 3)        { headline = 'Good effort!'; subtext = "You unlocked this week's bonus content."; }
+  else                        { headline = 'Keep going!';  subtext = 'Score 3 or more to unlock bonus content.'; }
+
+  const threshold = Math.max(3, Math.ceil(total * 0.3));
+  const bonusHTML = APP.bonusUnlocked
+    ? `<div class="bonus-box unlocked" onclick="navigate('bonus')">
+        <div class="bonus-box-tag">🔓 Bonus Unlocked</div>
+        <div class="bonus-box-title">Beyond the Classroom</div>
+        <div class="bonus-box-sub">Rare facts your textbook never told you</div>
+       </div>`
+    : `<div class="bonus-box locked">
+        <div class="bonus-box-tag">🔒 Bonus Locked</div>
+        <div class="bonus-box-title">Beyond the Classroom</div>
+        <div class="bonus-box-sub">Score ${threshold} or more to unlock</div>
+       </div>`;
+
+  area.innerHTML = `
+    <div>
+      <div class="screen-header">
+        <button class="back-btn" onclick="navigate('home')">←</button>
+        <div class="screen-title">Quiz Results</div>
+      </div>
+      <div class="results-wrap">
+        <div class="score-ring-wrap">
+          <svg width="140" height="140" viewBox="0 0 140 140">
+            <circle class="score-ring-track" cx="70" cy="70" r="${r}"/>
+            <circle class="score-ring-fill" id="score-ring" cx="70" cy="70" r="${r}"
+              stroke-dasharray="${circ.toFixed(2)}" stroke-dashoffset="${circ.toFixed(2)}"/>
+            <text class="score-num" x="70" y="66">${score}</text>
+            <text class="score-of"  x="70" y="86">out of ${total}</text>
+          </svg>
+        </div>
+        <div class="results-headline">${headline}</div>
+        <div class="results-subtext">${subtext}</div>
+        <div class="xp-row">
+          <span class="xp-row-label">XP Earned This Quiz</span>
+          <span class="xp-row-val">+${score * 20} XP</span>
+        </div>
+        ${bonusHTML}
+        <div class="results-actions">
+          <button class="btn btn-secondary btn-full"
+            onclick="showToast('Opening further reading links…')">📚 Further Reading for This Week</button>
+          <button class="btn btn-secondary btn-full"
+            onclick="showToast('Generating score card…')">📤 Share My Score</button>
+        </div>
+      </div>
+    </div>`;
+
+  requestAnimationFrame(() => {
+    const ring = document.getElementById('score-ring');
+    if (ring) ring.style.strokeDashoffset = (circ - fill).toFixed(2);
+  });
+}
+
+// ── BONUS ──────────────────────────────────────────────────────────────────
+
+function renderBonus(area) {
+  const c = APP.content;
+  const cards = c.bonus.map((b, i) => {
+    const topic = c.topics.find(tp => tp.id === b.topic_id) || c.topics[i];
+    const imgUrl = c.meta.image_base_url + b.image;
+    const fallback = TOPIC_FALLBACK[i] || '📖';
+    const tCls = APP.lang === 'tm' ? ' lang-tm' : '';
+    const bCls = APP.lang === 'tm' ? ' bonus-card-body-text lang-tm' : 'bonus-card-body-text';
+    return `
+      <div class="bonus-content-card">
+        <img class="bonus-img" src="${imgUrl}" alt="${t(b.title)}"
+          onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <div class="bonus-img-fallback" style="background:${topic ? topic.color+'33' : '#333'}">${fallback}</div>
+        <div class="bonus-card-body">
+          <div class="bonus-card-tag">Topic ${i+1} · ${t(topic ? topic.title : {en: b.topic_id})}</div>
+          <div class="bonus-card-title${tCls}">${t(b.title)}</div>
+          <div class="${bCls}">${t(b.body)}</div>
+          <a class="bonus-read-more" href="${b.read_more_url}" target="_blank" rel="noopener">📖 Read more →</a>
+        </div>
+      </div>`;
+  }).join('');
+
+  area.innerHTML = `
+    <div>
+      <div class="screen-header">
+        <button class="back-btn" onclick="navigate('results')">←</button>
+      </div>
+      <div class="bonus-screen-intro">
+        <div class="bonus-screen-tag">🔓 Bonus Unlocked</div>
+        <div class="bonus-screen-title">Beyond the Classroom</div>
+        <div class="bonus-screen-subtitle">Rare facts your textbook never told you</div>
+      </div>
+      <div class="bonus-wrap">${cards}</div>
+    </div>`;
+}
+
+// ── PROGRESS ───────────────────────────────────────────────────────────────
+
+function renderProgress(area) {
+  const pct = Math.round((APP.xp / APP.xpToNext) * 100);
+  const badges = APP.badges.map(b => `
+    <div class="badge-tile ${b.earned ? 'earned' : 'unearned'}">
+      <div class="badge-emoji">${b.emoji}</div>
+      <div class="badge-name">${b.label}</div>
+    </div>`).join('');
+
+  area.innerHTML = `
+    <div>
+      <div class="screen-header">
+        <div class="screen-title">Progress</div>
+      </div>
+      <div class="progress-wrap">
+        <div class="level-card">
+          <div class="level-label">Your Level</div>
+          <div class="level-name-en">${APP.level}</div>
+          <div class="level-name-tm">${APP.levelTm}</div>
+          <div class="xp-bar-wrap">
+            <div class="xp-bar-bg">
+              <div class="xp-bar-fill" id="xp-bar" style="width:0%"></div>
+            </div>
+            <div class="xp-bar-labels">
+              <span>${APP.xp} XP</span>
+              <span>${APP.xpToNext} XP → ${APP.nextLevel}</span>
+            </div>
+          </div>
+        </div>
+        <div class="badges-section-title">Badges</div>
+        <div class="badge-grid">${badges}</div>
+      </div>
+    </div>`;
+
+  requestAnimationFrame(() => {
+    const bar = document.getElementById('xp-bar');
+    if (bar) bar.style.width = pct + '%';
+  });
+}
+
+// ── LANGUAGE ───────────────────────────────────────────────────────────────
+
+function setLang(lang) {
+  APP.lang = lang;
+  document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+  document.getElementById('btn-tm').classList.toggle('active', lang === 'tm');
+  showToast(lang === 'tm' ? 'தமிழில் காட்டுகிறோம்' : 'Showing in English');
+  rerender();
+}
+
+// ── INIT ───────────────────────────────────────────────────────────────────
+
+async function init() {
+  try {
+    const res = await fetch(JSON_URL);
+    if (!res.ok) throw new Error('HTTP ' + res.status);
+    APP.content = await res.json();
+    document.getElementById('loading').style.display = 'none';
+    document.getElementById('app-wrap').style.display = '';
+    navigate('home');
+  } catch (err) {
+    document.getElementById('loading').innerHTML = `
+      <div class="load-error">
+        <p>Could not load content.<br>Check your connection and try again.</p>
+        <button class="btn btn-primary" onclick="init()">Retry</button>
+      </div>`;
+  }
+}
+
+init();
+</script>
+</body>
+</html>
