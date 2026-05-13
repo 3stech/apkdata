@@ -17,7 +17,7 @@
   --border:rgba(255,255,255,0.06);
   --r-card:14px;--r-btn:12px;--r-pill:20px;
 }
-html,body{height:100%;background:var(--bg);color:var(--txt);font-family:'Outfit',sans-serif;font-size:16px;-webkit-tap-highlight-color:transparent;overscroll-behavior:none}
+html,body{height:100%;background:var(--bg);color:var(--txt);font-family:'Outfit',sans-serif;font-size:16px;-webkit-tap-highlight-color:transparent;overscroll-behavior:none;user-select:none;-webkit-user-select:none}
 #app-wrap{max-width:480px;margin:0 auto;min-height:100%;display:flex;flex-direction:column}
 
 /* HEADER */
@@ -31,13 +31,15 @@ html,body{height:100%;background:var(--bg);color:var(--txt);font-family:'Outfit'
 #lang-toggle button.active{background:var(--amber);color:#000;border-radius:var(--r-pill)}
 
 /* SCREEN */
-#screen-area{flex:1;overflow-y:auto;padding-bottom:calc(60px + env(safe-area-inset-bottom) + 8px)}
+#screen-area{flex:1;overflow-y:auto;padding-bottom:calc(76px + env(safe-area-inset-bottom) + 8px)}
 
 /* BOTTOM NAV */
-#bottom-nav{position:fixed;bottom:0;left:50%;transform:translateX(-50%);width:100%;max-width:480px;height:calc(60px + env(safe-area-inset-bottom));background:var(--surface);border-top:1px solid var(--border);display:flex;z-index:100;padding-bottom:env(safe-area-inset-bottom)}
+#bottom-nav{position:fixed;bottom:0;left:50%;transform:translateX(-50%);width:100%;max-width:480px;height:calc(76px + env(safe-area-inset-bottom));background:var(--surface);border-top:1px solid var(--border);display:flex;flex-direction:column;z-index:100;padding-bottom:env(safe-area-inset-bottom)}
+.nav-tabs-row{display:flex;height:60px;flex-shrink:0}
 .nav-tab{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;background:none;border:none;color:var(--txt3);font-family:'Outfit',sans-serif;font-size:.7rem;font-weight:600;cursor:pointer;gap:3px;padding:8px 0;transition:color .2s}
 .nav-tab .nav-icon{font-size:1.15rem}
 .nav-tab.active{color:var(--amber)}
+#copyright-bar{flex:1;display:flex;align-items:center;justify-content:center;font-size:.52rem;color:var(--txt3);opacity:.5;letter-spacing:.03em;user-select:none;-webkit-user-select:none;pointer-events:none}
 
 /* LOADING */
 #loading{position:fixed;inset:0;background:var(--bg);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;z-index:999}
@@ -265,18 +267,21 @@ html,body{height:100%;background:var(--bg);color:var(--txt);font-family:'Outfit'
   </header>
   <main id="screen-area"></main>
   <nav id="bottom-nav">
-    <button class="nav-tab active" data-screen="home" onclick="navigate('home')">
-      <span class="nav-icon">🏠</span><span>Home</span>
-    </button>
-    <button class="nav-tab" data-screen="summary" onclick="navigate('summary')">
-      <span class="nav-icon">📋</span><span>Recap</span>
-    </button>
-    <button class="nav-tab" data-screen="quiz" onclick="navigate('quiz')">
-      <span class="nav-icon">🧠</span><span>Quiz</span>
-    </button>
-    <button class="nav-tab" data-screen="progress" onclick="navigate('progress')">
-      <span class="nav-icon">🏆</span><span>Progress</span>
-    </button>
+    <div class="nav-tabs-row">
+      <button class="nav-tab active" data-screen="home" onclick="navigate('home')">
+        <span class="nav-icon">🏠</span><span>Home</span>
+      </button>
+      <button class="nav-tab" data-screen="summary" onclick="navigate('summary')">
+        <span class="nav-icon">📋</span><span>Recap</span>
+      </button>
+      <button class="nav-tab" data-screen="quiz" onclick="navigate('quiz')">
+        <span class="nav-icon">🧠</span><span>Quiz</span>
+      </button>
+      <button class="nav-tab" data-screen="progress" onclick="navigate('progress')">
+        <span class="nav-icon">🏆</span><span>Progress</span>
+      </button>
+    </div>
+    <div id="copyright-bar">© 3S Technologies Chennai</div>
   </nav>
 </div>
 
@@ -904,6 +909,18 @@ async function init() {
       </div>`;
   }
 }
+
+(function(){
+  document.addEventListener('contextmenu', function(e){ e.preventDefault(); });
+  document.addEventListener('copy',  function(e){ e.preventDefault(); });
+  document.addEventListener('cut',   function(e){ e.preventDefault(); });
+  document.addEventListener('dragstart', function(e){ e.preventDefault(); });
+  document.addEventListener('keydown', function(e){
+    if (e.key === 'F12') { e.preventDefault(); return; }
+    if (e.ctrlKey && e.shiftKey && /^[IJC]$/i.test(e.key)) { e.preventDefault(); return; }
+    if (e.ctrlKey && !e.shiftKey && /^[uUsS]$/.test(e.key)) { e.preventDefault(); return; }
+  }, true);
+})();
 
 init();
 </script>
